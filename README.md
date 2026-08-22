@@ -26,16 +26,8 @@ python -m http.server 4173
 
 Then open `http://localhost:4173`.
 
-## Add real Kodo media
+## Design release v0.11.3
 
-1. Put approved media in `assets/`.
-2. Update `media-manifest.js` and switch the slot from `conceptual` to `real`.
-3. Add a useful alt description and caption.
+This release removes the public GitHub CTA, moves the Kodo crest into the top navigation, replaces the large Hero logo with a square system-field visual, strengthens dark-mode card outlines, constrains the Roadmap width, and shifts the System section toward an open schematic.
 
-See [`docs/MEDIA_INTAKE.md`](docs/MEDIA_INTAKE.md).
-
-## Release v0.10.6
-
-This release integrates the Kodo/NPLUS visual identity, compresses public copy, adds current perception tooling, and keeps detailed authority history behind the public surface.
-
-See [`docs/PUBLIC_TRUTH_V0_10_6.md`](docs/PUBLIC_TRUTH_V0_10_6.md).
+See [`docs/AESTHETIC_COURT_V0_11_3.md`](docs/AESTHETIC_COURT_V0_11_3.md).
