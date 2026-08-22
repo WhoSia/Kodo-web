@@ -8,6 +8,6 @@ window.KODO_MEDIA = {
     mode: "conceptual",
     src: "",
     alt: "",
-    caption: "Conceptual environment schematic while real Kodo media is pending."
+    caption: "Environment structure and agent-state system view."
   }
 };

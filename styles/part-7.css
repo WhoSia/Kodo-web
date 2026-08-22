@@ -1,0 +1,74 @@
+/* v0.10.4 — narrative calibration / ambition layer */
+
+/* Public copy carries project direction; authority policing stays in docs + release checks. */
+.authority-tag {
+  border-color:color-mix(in srgb,var(--d-representation) 34%,var(--rule));
+  color:var(--ink-muted);
+}
+
+.ambition {
+  position:relative;
+  overflow:hidden;
+}
+.ambition::before {
+  content:"";
+  position:absolute;
+  width:min(68vw,980px);
+  aspect-ratio:1;
+  right:-24vw;
+  top:-35%;
+  border:1px solid color-mix(in srgb,var(--ink) 8%,transparent);
+  border-radius:50%;
+  box-shadow:0 0 0 72px color-mix(in srgb,var(--ink) 1.4%,transparent),0 0 0 144px color-mix(in srgb,var(--ink) 1%,transparent);
+  pointer-events:none;
+}
+.ambition-grid { position:relative; z-index:1; align-items:start; }
+.ambition-grid>.section-index { grid-column:1 / 4; }
+.ambition-copy { grid-column:4 / 10; }
+.ambition-title {
+  margin:0;
+  font-size:clamp(62px,7vw,118px);
+  line-height:.91;
+  letter-spacing:-.065em;
+  font-weight:590;
+}
+.ambition-lead {
+  margin:36px 0 0;
+  max-width:760px;
+  color:var(--ink-muted);
+  font-size:clamp(17px,1.35vw,21px);
+  line-height:1.48;
+}
+.ambition-steps {
+  grid-column:4 / 13;
+  margin-top:96px;
+  border-top:1px solid var(--rule);
+}
+.ambition-steps>div {
+  display:grid;
+  grid-template-columns:72px minmax(220px,.9fr) 1.4fr;
+  gap:24px;
+  align-items:baseline;
+  padding:23px 0;
+  border-bottom:1px solid var(--rule);
+}
+.ambition-steps span,.ambition-steps strong {
+  font-family:var(--font-mono);
+  letter-spacing:.065em;
+  font-size:9px;
+}
+.ambition-steps span { color:var(--accent); }
+.ambition-steps strong { font-weight:560; }
+.ambition-steps em { color:var(--ink-muted); font-style:normal; font-size:15px; }
+
+@media (max-width:899px) {
+  .ambition-grid>.section-index,.ambition-copy,.ambition-steps { grid-column:1 / -1; }
+  .ambition-copy { margin-top:58px; }
+  .ambition-steps { margin-top:68px; }
+}
+@media (max-width:599px) {
+  .ambition-title { font-size:clamp(50px,15vw,72px); }
+  .ambition-lead { margin-top:27px; }
+  .ambition-steps>div { grid-template-columns:48px 1fr; gap:10px 16px; }
+  .ambition-steps em { grid-column:2; }
+}

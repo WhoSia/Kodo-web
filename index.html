@@ -20,7 +20,7 @@
 <a href="#overview">Overview</a>
 <a href="#stack">Stack</a>
 <a href="#roadmap">Roadmap</a>
-<a href="#status">Status</a>
+<a href="#progress">Progress</a>
 </nav>
 <button aria-controls="mobile-nav" aria-expanded="false" class="menu-button" data-menu-button="" type="button">
 <span>Menu</span><span aria-hidden="true" class="menu-mark">+</span>
@@ -30,7 +30,7 @@
 <a href="#overview">Overview</a>
 <a href="#stack">Stack</a>
 <a href="#roadmap">Roadmap</a>
-<a href="#status">Status</a>
+<a href="#progress">Progress</a>
 </nav>
 </header>
 <main id="main">
@@ -49,16 +49,16 @@
 <div class="hero-copy">
 <p class="eyebrow reveal brand-preserve">NPLUS / Kodo</p>
 <h1 class="display-xl line-reveal" id="hero-title"><span>Building agents</span><span>that learn to play.</span></h1>
-<p class="hero-lead reveal delay-2">Kodo rebuilds Brawl Stars as a controllable game environment first, then uses that system as the foundation for reinforcement learning.</p>
+<p class="hero-lead reveal delay-2">Kodo rebuilds Brawl Stars as a controllable game environment, trains agents inside it, then carries the same decision loop back toward the live screen.</p>
 </div>
 <dl class="hero-meta reveal delay-3">
 <div><dt>Team</dt><dd>NPLUS</dd></div>
 <div><dt>Project</dt><dd>Kodo</dd></div>
-<div><dt>Target</dt><dd>Brawl Stars / Colt</dd></div>
+<div><dt>System</dt><dd>Game environment + agents</dd></div>
 <div><dt>Build state</dt><dd><span class="status-dot"></span>Game logic + UI implemented</dd></div>
 </dl>
 <figure aria-labelledby="fig-001-caption" class="hero-figure reveal-figure">
-<div class="figure-topline"><span>FIG. 001</span><span class="brand-preserve">Kodo ENVIRONMENT / MEDIA SLOT</span></div>
+<div class="figure-topline"><span>FIG. 001</span><span class="brand-preserve">Kodo ENVIRONMENT / SYSTEM VIEW</span></div>
 <div class="hero-media-slot" data-media-slot="hero"><img alt="" class="hero-real-media" data-real-media="hero" hidden=""/><div aria-label="Conceptual game environment schematic, not live project output" class="simulation-stage figure-visual" data-conceptual-fallback="hero" data-sim-visual="">
 <div aria-hidden="true" class="coord-ruler coord-ruler-x"><span>00</span><span>04</span><span>08</span><span>12</span><span>16</span></div>
 <div aria-hidden="true" class="coord-ruler coord-ruler-y"><span>A</span><span>B</span><span>C</span><span>D</span></div>
@@ -83,20 +83,20 @@
 <div class="sim-hud hud-b">OBS / SCHEMATIC</div>
 <div class="sim-hud hud-c">PATH / SAMPLED</div>
 </div></div>
-<figcaption class="figure-caption" id="fig-001-caption"><span data-media-caption="hero">Conceptual environment schematic while real Kodo media is pending.</span><span data-media-state="hero">CONCEPTUAL FALLBACK</span></figcaption>
+<figcaption class="figure-caption" id="fig-001-caption"><span data-media-caption="hero">Environment structure and agent-state system view.</span><span data-media-state="hero">SYSTEM SCHEMATIC</span></figcaption>
 </figure>
 </div>
 </section>
 <section aria-labelledby="overview-title" class="overview section-shell ruled-top" id="overview">
 <div class="shell">
 <div class="section-heading grid-12">
-<p class="section-index">OVERVIEW / CURRENT DIRECTION</p>
+<p class="section-index">OVERVIEW / SYSTEM PREMISE</p>
 <div class="heading-cluster">
-<h2 class="section-title" id="overview-title">One game system. Two observation paths.</h2>
-<p class="section-deck">The current architecture direction keeps a stable actor-facing contract while the observation source changes between simulation and a device perception path. Exact model and library choices remain under review.</p>
+<h2 class="section-title" id="overview-title">Build the world. Then learn inside it.</h2>
+<p class="section-deck">Kodo treats the environment as part of the learning system: implement the mechanics, expose a controllable state, train agents against it, then close the loop through visual observation.</p>
 </div>
 </div>
-<div class="system-premise" aria-label="Working Kodo system premise">
+<div class="system-premise" aria-label="Kodo system premise">
 <div class="premise-source" data-diagram-role="source">
 <span class="diagram-kicker">SOURCE / SIMULATION</span>
 <strong>Kodo environment</strong>
@@ -108,17 +108,17 @@
 <div class="premise-chain">
 <b>Observation</b><i>→</i><b>Representation</b><i>→</i><b>Memory</b><i>→</i><b>Policy</b><i>→</i><b>Action</b>
 </div>
-<span class="authority-tag">WORKING ARCHITECTURE</span>
+<span class="authority-tag">SHARED ACTOR LOOP</span>
 </div>
 <div class="premise-join reverse" aria-hidden="true"><span></span></div>
 <div class="premise-source" data-diagram-role="source">
 <span class="diagram-kicker">SOURCE / DEVICE</span>
 <strong>Screen → perception</strong>
-<em>planned path</em>
+<em>screen perception</em>
 </div>
 <div class="premise-training" data-diagram-role="training">
 <span>TRAINING ONLY</span>
-<p>Learning may use information unavailable to the deployed actor. Any such branch must stay visibly separate from actor input.</p>
+<p>Training can exploit structured state; the device path has to rebuild what the actor needs from pixels.</p>
 </div>
 </div>
 </div>
@@ -127,51 +127,51 @@
 <section aria-labelledby="stack-title" class="stack section-shell ruled-top" id="stack">
 <div class="shell">
 <div class="section-heading grid-12">
-<p class="section-index">STACK / WORKING ARCHITECTURE</p>
+<p class="section-index">STACK / SHARED ACTOR LOOP</p>
 <div class="heading-cluster">
-<h2 class="section-title" id="stack-title">From source to action.</h2>
-<p class="section-deck">This is the public contract, not a frozen implementation spec. Components show their role and authority state; exact algorithm, model-family, dimension, and library choices are deliberately withheld until locked.</p>
+<h2 class="section-title" id="stack-title">One actor loop, two ways in.</h2>
+<p class="section-deck">In simulation, Kodo reads structured state. On device, perception reconstructs the same actor-facing contract. From there the loop stays recognizable: observe, represent, remember, decide, act.</p>
 </div>
 </div>
 <div class="stack-flow" aria-label="Kodo working algorithm stack">
 <article class="stack-node" data-diagram-role="source">
 <span>01 / SOURCE</span>
-<h3>Game or device state</h3>
-<p>Simulation today; visual device path as the deployment direction.</p>
-<em>mixed maturity</em>
+<h3>Simulation + device</h3>
+<p>Structured state in Kodo; screen-derived state on device.</p>
+<em>two sources</em>
 </article>
 <div class="flow-arrow" aria-hidden="true">→</div>
 <article class="stack-node" data-diagram-role="representation">
 <span>02 / OBSERVATION</span>
-<h3>Actor input contract</h3>
-<p>A representation the policy can consume across execution regimes.</p>
-<em>working design</em>
+<h3>Shared actor input</h3>
+<p>Keep the policy interface stable while the observation source changes.</p>
+<em>one contract</em>
 </article>
 <div class="flow-arrow" aria-hidden="true">→</div>
 <article class="stack-node" data-diagram-role="representation">
 <span>03 / REPRESENT</span>
 <h3>Encoder + memory</h3>
-<p>Temporal and entity representation are still under architectural review.</p>
-<em>under review</em>
+<p>Turn game entities and temporal context into a state the policy can use.</p>
+<em>state</em>
 </article>
 <div class="flow-arrow" aria-hidden="true">→</div>
 <article class="stack-node" data-diagram-role="policy">
 <span>04 / POLICY</span>
 <h3>Multi-agent policy</h3>
-<p>The policy family is a current direction rather than a locked public claim.</p>
-<em>under review</em>
+<p>Learn decisions from human play and multi-agent experience instead of scripting behavior.</p>
+<em>learn</em>
 </article>
 <div class="flow-arrow" aria-hidden="true">→</div>
 <article class="stack-node" data-diagram-role="policy">
 <span>05 / ACTION</span>
-<h3>Control contract</h3>
-<p>Actions return to the simulated game or, later, the device-control path.</p>
-<em>working design</em>
+<h3>Game control</h3>
+<p>Return decisions to the environment — and eventually to the device.</p>
+<em>act</em>
 </article>
 </div>
 <div class="stack-lanes">
-<div class="stack-lane" data-diagram-role="training"><strong>TRAINING PATH</strong><span>optimisation / privileged signals may branch here</span></div>
-<div class="stack-lane deploy" data-diagram-role="deploy"><strong>DEVICE PATH</strong><span>screen perception must supply only what the actor can observe</span></div>
+<div class="stack-lane" data-diagram-role="training"><strong>TRAINING PATH</strong><span>structured state + optimisation can live here</span></div>
+<div class="stack-lane deploy" data-diagram-role="deploy"><strong>DEVICE PATH</strong><span>perception recreates actor input from the screen</span></div>
 </div>
 </div>
 </section>
@@ -179,68 +179,81 @@
 <section aria-labelledby="roadmap-title" class="roadmap section-shell ruled-top" id="roadmap">
 <div class="shell">
 <div class="section-heading grid-12">
-<p class="section-index">PLAN / WORKING ROADMAP</p>
+<p class="section-index">PLAN / TRAINING ROADMAP</p>
 <div class="heading-cluster">
-<h2 class="section-title" id="roadmap-title">Human video → imitation → multi-agent → device.</h2>
-<p class="section-deck">The latest simplified planning revision is used here as a roadmap, not as proof that every stage or stack choice is already implemented.</p>
+<h2 class="section-title" id="roadmap-title">From human play to autonomous play.</h2>
+<p class="section-deck">Use real play to bootstrap the policy, turn imitation into self-play, then take the loop back to the device.</p>
 </div>
 </div>
 <div class="roadmap-flow" aria-label="Kodo working training roadmap">
 <article class="roadmap-gate" data-diagram-role="risk">
 <span>GATE</span>
-<h3>Prerequisites first</h3>
-<p>Training results do not count until the current environment and observation blockers are closed.</p>
-<em>details held until confirmed</em>
+<h3>Make the environment worth learning from</h3>
+<p>Close the observation and control failures that would poison everything downstream.</p>
+<em>before training</em>
 </article>
 <div class="roadmap-arrow" aria-hidden="true">→</div>
-<article class="roadmap-stage" data-diagram-role="source"><span>01</span><h3>Human play video</h3><p>Collect representative gameplay from the real game.</p><em>working route</em></article>
+<article class="roadmap-stage" data-diagram-role="source"><span>01</span><h3>Human play video</h3><p>Record strong play in the real game.</p><em>data source</em></article>
 <div class="roadmap-arrow" aria-hidden="true">→</div>
-<article class="roadmap-stage" data-diagram-role="source"><span>02</span><h3>CV reverse-engineering</h3><p>Infer observation and action labels from recorded play.</p><em>working route</em></article>
+<article class="roadmap-stage" data-diagram-role="source"><span>02</span><h3>CV reverse-engineering</h3><p>Recover observations and actions from recorded play.</p><em>data bridge</em></article>
 <div class="roadmap-arrow" aria-hidden="true">→</div>
-<article class="roadmap-stage" data-diagram-role="representation"><span>03</span><h3>Behaviour cloning</h3>
-<p>Use human data to initialise a policy before reinforcement learning.</p><em>planned</em></article>
+<article class="roadmap-stage" data-diagram-role="representation"><span>03</span><h3>Behaviour cloning</h3><p>Give the policy a strong starting point before self-play.</p><em>imitation</em></article>
 <div class="roadmap-arrow" aria-hidden="true">→</div>
-<article class="roadmap-stage" data-diagram-role="policy"><span>04</span><h3>Multi-agent self-play</h3><p>Continue learning against a changing population of agents.</p><em>planned</em></article>
+<article class="roadmap-stage" data-diagram-role="policy"><span>04</span><h3>Multi-agent self-play</h3><p>Let agents create a harder curriculum for one another.</p><em>reinforcement</em></article>
 <div class="roadmap-arrow" aria-hidden="true">→</div>
-<article class="roadmap-stage" data-diagram-role="source"><span>05</span><h3>Device test</h3><p>Evaluate perception, delay, aim control, and the sim-to-device gap.</p><em>test direction</em></article>
+<article class="roadmap-stage" data-diagram-role="source"><span>05</span><h3>Device test</h3><p>Bring the policy back to the screen and stress the full control loop.</p><em>sim → device</em></article>
 </div>
 <div class="roadmap-notes">
-<p><strong>PUBLIC SIMPLIFICATION</strong> Detailed blocker IDs, exact model names, action dimensions, observation dimensions, and hyperparameters are intentionally not reproduced here.</p>
-<p><strong>RETRAINING RISK</strong> Device-side changes may invalidate earlier checkpoints; that dependency stays visible in the roadmap rather than being hidden as implementation detail.</p>
+<p><strong>ONE PERCEPTION THREAD</strong> The perception work that reconstructs human play can also become the path back into device observations.</p>
+<p><strong>KEEP WHAT HUMAN PLAY TAUGHT</strong> Imitation is a foundation for later learning, not a disposable prelude.</p>
 </div>
 </div>
 </section>
 
-<section aria-labelledby="status-title" class="status-section section-shell ruled-top" id="status">
+<section aria-labelledby="progress-title" class="status-section section-shell ruled-top" id="progress">
 <div class="shell">
 <div class="section-heading grid-12">
-<p class="section-index">STATUS/ TRUTH LAYER</p>
+<p class="section-index">PROGRESS / NOW → NEXT</p>
 <div class="heading-cluster">
-<h2 class="section-title" id="status-title">Confirmed build vs working plan.</h2>
-<p class="section-deck">Kodo now separates what has been reported implemented from architecture that is likely but not yet locked.</p>
+<h2 class="section-title" id="progress-title">The game system is taking shape. Learning comes next.</h2>
+<p class="section-deck">Core game logic and UI are in place. Kodo is extending the environment now, then moving through human data, imitation, multi-agent learning, and the device loop.</p>
 </div>
 </div>
 <div class="status-matrix">
 <section class="status-column">
-<p class="status-column-label">CONFIRMED BUILD</p>
+<p class="status-column-label">NOW</p>
 <div class="status-line"><span>Core game logic</span><strong>Implemented</strong></div>
 <div class="status-line"><span>User interface</span><strong>Implemented</strong></div>
 <div class="status-line"><span>Gas system</span><strong data-status="active">In development</strong></div>
 </section>
 <section class="status-column">
-<p class="status-column-label">WORKING DIRECTION</p>
-<div class="status-line"><span>Architecture shown above</span><strong>Not locked</strong></div>
-<div class="status-line"><span>Model / library choices</span><strong>Under review</strong></div>
-<div class="status-line"><span>Roadmap stages</span><strong>Planning sequence</strong></div>
+<p class="status-column-label">NEXT</p>
+<div class="status-line"><span>Human-play data</span><strong>Collect</strong></div>
+<div class="status-line"><span>Behaviour cloning</span><strong>Train</strong></div>
+<div class="status-line"><span>Multi-agent learning</span><strong>Scale</strong></div>
 </section>
 <section class="status-column">
-<p class="status-column-label">PUBLICATION POLICY</p>
-<div class="status-line"><span>Exact dimensions /hyperparameters</span><strong>Withheld</strong></div>
-<div class="status-line"><span>Detailed blocker list</span><strong>Withheld</strong></div>
-<div class="status-line"><span>Public team roster</span><strong>Omitted</strong></div>
+<p class="status-column-label">THEN</p>
+<div class="status-line"><span>Device perception</span><strong>Connect</strong></div>
+<div class="status-line"><span>Delay + aim robustness</span><strong>Stress-test</strong></div>
+<div class="status-line"><span>Wider game coverage</span><strong>Expand</strong></div>
 </section>
 </div>
-<p class="placeholder-note">AUTHORITY BASIS / NPLUS teammate reply + revised planning diagram µ 2026.08.22 µ deleted chat content is not used as evidence.</p>
+</div>
+</section>
+
+<section aria-labelledby="ambition-title" class="ambition section-shell ruled-top" id="ambition">
+<div class="shell grid-12 ambition-grid">
+<p class="section-index brand-preserve">FIRST TARGET / COLT</p>
+<div class="ambition-copy">
+<h2 class="ambition-title" id="ambition-title">Start with Colt.<br/>Don’t stop there.</h2>
+<p class="ambition-lead">One brawler is enough to force the whole stack to become real: movement, aim, projectiles, observation, memory, policy, and control. Kodo starts narrow so the system can become concrete — then expands the problem.</p>
+</div>
+<div class="ambition-steps" aria-label="Kodo long-range direction">
+<div><span>01</span><strong>MASTER THE LOOP</strong><em>Move. Aim. Dodge. Shoot.</em></div>
+<div><span>02</span><strong>WIDEN THE GAME</strong><em>More maps, matchups, mechanics.</em></div>
+<div><span>03</span><strong>CLOSE THE GAP</strong><em>From simulator to the screen.</em></div>
+</div>
 </div>
 </section>
 </main>
@@ -248,7 +261,7 @@
 <div class="shell grid-12 footer-grid">
 <div class="footer-title">Kodo <small>/ NPLUS</small></div>
 <p>Game-system engineering + agent learning.</p>
-<div class="footer-links"><span>Working architecture is labeled by authority state.</span></div>
+<div class="footer-links"><span>Build the game. Train the agent. Close the loop.</span></div>
 <p class="copyright">© 2026</p>
 <p class="affiliation-note">Independent NPLUS project. Brawl Stars identifies the project target; no affiliation with Supercell is implied.</p>
 </div>
