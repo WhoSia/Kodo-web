@@ -13,7 +13,8 @@
       const root = document.documentElement;
       let theme = 'dark';
       try {
-        theme = localStorage.getItem('kodo-theme') || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        const stored = localStorage.getItem('kodo-theme-v0112');
+        theme = stored === 'light' ? 'light' : 'dark';
       } catch (_) {}
       root.dataset.theme = theme;
       root.classList.replace('no-js','js');
@@ -27,6 +28,7 @@
     <a class="brand-lockup" href="#top" aria-label="Kodo home">
       <img src="./assets/nplus-logo.webp" alt="" class="nplus-mark" />
       <span class="brand-word">Kodo</span>
+      <img src="./assets/kodo-crest-v0113.webp" alt="" class="kodo-crest-mini" />
     </a>
     <nav class="desktop-nav" aria-label="Primary navigation">
       <a href="#system">System</a>
@@ -52,14 +54,14 @@
 <main id="main">
 <section class="hero" id="top">
   <svg class="hero-constellation" viewBox="0 0 1440 760" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M780 90 C980 25 1260 70 1390 250" />
-    <path d="M850 250 C1030 160 1230 190 1370 390" />
-    <path d="M950 120 L1040 205 L1160 150 L1280 265 L1360 220" />
-    <circle cx="950" cy="120" r="2.2"/><circle cx="1040" cy="205" r="1.8"/><circle cx="1160" cy="150" r="2.5"/><circle cx="1280" cy="265" r="1.8"/><circle cx="1360" cy="220" r="2.4"/>
+    <path d="M820 86 C1010 22 1248 58 1394 212" />
+    <path d="M930 218 C1080 158 1260 184 1384 338" />
+    <path d="M1040 94 L1116 154 L1212 110 L1308 196 L1382 162" />
+    <circle cx="1040" cy="94" r="2.1"/><circle cx="1116" cy="154" r="1.7"/><circle cx="1212" cy="110" r="2.4"/><circle cx="1308" cy="196" r="1.8"/><circle cx="1382" cy="162" r="2.3"/>
   </svg>
   <div class="shell hero-grid">
     <div class="hero-copy">
-      <p class="eyebrow"><img src="./assets/nplus-logo.webp" alt="NPLUS" /> <span>NPLUS / Kodo</span></p>
+      <p class="eyebrow"><span>NPLUS / Kodo</span></p>
       <h1>Building agents<br/>that learn to play.</h1>
       <p class="hero-lead">Build the game. Train the agent. Bring the policy back to the screen.</p>
       <div class="hero-facts" aria-label="Kodo current facts">
@@ -69,16 +71,41 @@
       </div>
       <div class="hero-links">
         <a href="#system">Explore the system ↓</a>
-        <a href="https://github.com/WhoSia/Kodo-web" target="_blank" rel="noreferrer">GitHub ↗</a>
       </div>
     </div>
-    <figure class="hero-brand" data-media-slot="hero">
-      <img class="hero-real-media" data-real-media="hero" hidden alt="" />
-      <div class="logo-stage" data-conceptual-fallback="hero">
-        <div class="logo-aura"></div>
-        <img src="./assets/kodo-logo.webp" alt="Kodo Project — RL AI for Brawl Stars" class="kodo-logo" />
+
+    <figure class="hero-instrument" aria-label="Conceptual Kodo system field">
+      <div class="instrument-stage">
+        <div class="instrument-meta"><span>KODO / SYSTEM FIELD</span><span>SIM ⇄ DEVICE</span></div>
+        <svg class="instrument-graph" viewBox="0 0 600 600" role="img" aria-label="Decorative graph of connected system nodes">
+          <g class="instrument-arcs">
+            <path d="M62 414 C176 146 426 76 558 250" />
+            <path d="M102 494 C246 280 412 286 536 506" />
+            <path d="M42 338 C156 242 276 222 374 252" />
+          </g>
+          <g class="instrument-edges">
+            <path d="M114 162 L198 270 L318 188 L402 322 L514 242" />
+            <path d="M198 270 L256 414 L402 322 L474 456" />
+            <path d="M318 188 L370 108 L514 242 L556 154" />
+            <path d="M114 162 L88 284 L198 270" />
+          </g>
+          <g class="instrument-nodes">
+            <circle cx="114" cy="162" r="4"/><circle cx="198" cy="270" r="3.3"/>
+            <circle cx="318" cy="188" r="4.8"/><circle cx="402" cy="322" r="3.8"/>
+            <circle cx="514" cy="242" r="4.4"/><circle cx="256" cy="414" r="3.2"/>
+            <circle cx="474" cy="456" r="3.6"/><circle cx="370" cy="108" r="3"/>
+            <circle cx="556" cy="154" r="2.8"/><circle cx="88" cy="284" r="2.6"/>
+          </g>
+          <g class="instrument-stars">
+            <path d="M318 164 L323 183 L342 188 L323 193 L318 212 L313 193 L294 188 L313 183 Z" />
+            <path d="M514 228 L517 239 L528 242 L517 245 L514 256 L511 245 L500 242 L511 239 Z" />
+            <path d="M114 150 L117 159 L126 162 L117 165 L114 174 L111 165 L102 162 L111 159 Z" />
+          </g>
+        </svg>
+        <div class="instrument-corner corner-a"></div>
+        <div class="instrument-corner corner-b"></div>
       </div>
-      <figcaption><span data-media-caption="hero">Kodo / NPLUS</span><span data-media-state="hero">PROJECT IDENTITY</span></figcaption>
+      <figcaption><span>OBSERVE / REPRESENT / DECIDE / ACT</span><span>SCHEMATIC</span></figcaption>
     </figure>
   </div>
 </section>
@@ -90,7 +117,7 @@
       <h2>One game system. Two ways in.</h2>
       <p>Structured state in simulation. Reconstructed state on device. One decision loop connects both.</p>
     </div>
-    <div class="system-flow" aria-label="Kodo system flow">
+    <div class="system-flow open-system" aria-label="Kodo system flow">
       <article class="system-node source-node">
         <span>SIMULATION</span>
         <h3>Kodo environment</h3>
@@ -100,7 +127,7 @@
       <article class="system-node actor-node">
         <span>ACTOR LOOP</span>
         <h3>Observe → represent → remember → decide → act</h3>
-        <p>The policy-facing loop stays coherent across both worlds.</p>
+        <p>The same decision loop bridges simulation and screen perception.</p>
       </article>
       <div class="system-arrow reverse">←</div>
       <article class="system-node source-node device-node">
@@ -120,26 +147,10 @@
       <p>Kodo’s visual stack turns the live screen into state the agent can use.</p>
     </div>
     <div class="perception-grid">
-      <article class="perception-card blue">
-        <span>YOLO / ULTRALYTICS</span>
-        <h3>Entities + walls</h3>
-        <p>Detect players, allies, enemies and map geometry.</p>
-      </article>
-      <article class="perception-card green">
-        <span>OPENCV</span>
-        <h3>Templates + colour</h3>
-        <p>Template matching, HSV masking and colour counting.</p>
-      </article>
-      <article class="perception-card violet">
-        <span>GAME STATE</span>
-        <h3>Ability readiness</h3>
-        <p>Track signals such as super, gadget and hypercharge readiness.</p>
-      </article>
-      <article class="perception-card frontier">
-        <span>FRONTIER</span>
-        <h3>Projectile tracking</h3>
-        <p>The hardest visual state — and a clean boundary between simulation and device perception.</p>
-      </article>
+      <article class="perception-card blue"><span>YOLO / ULTRALYTICS</span><h3>Entities + walls</h3><p>Detect players, allies, enemies and map geometry.</p></article>
+      <article class="perception-card green"><span>OPENCV</span><h3>Templates + colour</h3><p>Template matching, HSV masking and colour counting.</p></article>
+      <article class="perception-card violet"><span>GAME STATE</span><h3>Ability readiness</h3><p>Track signals such as super, gadget and hypercharge readiness.</p></article>
+      <article class="perception-card frontier"><span>FRONTIER</span><h3>Projectile tracking</h3><p>The hardest visual state — and a clean boundary between simulation and device perception.</p></article>
     </div>
   </div>
 </section>
@@ -152,14 +163,10 @@
       <p>Real play bootstraps the policy. Self-play pushes it further. The device closes the loop.</p>
     </div>
     <div class="roadmap-flow">
-      <article><span>01</span><h3>Record</h3><p>Capture strong human play.</p></article>
-      <i>→</i>
-      <article><span>02</span><h3>Recover</h3><p>Turn video into observations and actions.</p></article>
-      <i>→</i>
-      <article><span>03</span><h3>Imitate</h3><p>Bootstrap the policy from human play.</p></article>
-      <i>→</i>
-      <article><span>04</span><h3>Compete</h3><p>Scale with multi-agent self-play.</p></article>
-      <i>→</i>
+      <article><span>01</span><h3>Record</h3><p>Capture strong human play.</p></article><i>→</i>
+      <article><span>02</span><h3>Recover</h3><p>Turn video into observations and actions.</p></article><i>→</i>
+      <article><span>03</span><h3>Imitate</h3><p>Bootstrap the policy from human play.</p></article><i>→</i>
+      <article><span>04</span><h3>Compete</h3><p>Scale with multi-agent self-play.</p></article><i>→</i>
       <article><span>05</span><h3>Deploy</h3><p>Bring the loop back to the screen.</p></article>
     </div>
   </div>
@@ -172,21 +179,9 @@
       <h2>Build first. Learn next.</h2>
     </div>
     <div class="progress-grid">
-      <article>
-        <span>BUILT</span>
-        <strong>Core game logic</strong>
-        <strong>User interface</strong>
-      </article>
-      <article>
-        <span>BUILDING</span>
-        <strong>Gas system</strong>
-        <strong>Perception bridge</strong>
-      </article>
-      <article>
-        <span>NEXT</span>
-        <strong>Human-play data</strong>
-        <strong>Imitation → self-play</strong>
-      </article>
+      <article><span>BUILT</span><strong>Core game logic</strong><strong>User interface</strong></article>
+      <article><span>BUILDING</span><strong>Gas system</strong><strong>Perception bridge</strong></article>
+      <article><span>NEXT</span><strong>Human-play data</strong><strong>Imitation → self-play</strong></article>
     </div>
   </div>
 </section>
@@ -194,30 +189,16 @@
 <section class="ambition ruled" id="ambition">
   <div class="shell ambition-grid">
     <p class="section-index">FIRST TARGET / COLT</p>
-    <div>
-      <h2>Start with Colt.<br/>Scale the system.</h2>
-      <p>One brawler is enough to make the whole loop real: movement, aim, timing, state, policy and control. Get it right once, then widen the game.</p>
-    </div>
-    <div class="ambition-steps">
-      <span>MASTER THE LOOP</span>
-      <span>WIDEN THE GAME</span>
-      <span>CLOSE THE GAP</span>
-    </div>
+    <div><h2>Start with Colt.<br/>Scale the system.</h2><p>One brawler is enough to make the whole loop real: movement, aim, timing, state, policy and control. Get it right once, then widen the game.</p></div>
+    <div class="ambition-steps"><span>MASTER THE LOOP</span><span>WIDEN THE GAME</span><span>CLOSE THE GAP</span></div>
   </div>
 </section>
 </main>
 
 <footer class="site-footer ruled">
   <div class="shell footer-grid">
-    <div class="footer-brands">
-      <img src="./assets/nplus-logo.webp" alt="NPLUS" />
-      <img src="./assets/kodo-logo.webp" alt="Kodo Project" />
-    </div>
-    <div class="footer-copy">
-      <strong>Kodo / NPLUS</strong>
-      <a href="https://kodoresearch.org" target="_blank" rel="noreferrer">kodoresearch.org ↗</a>
-      <a href="https://github.com/WhoSia/Kodo-web" target="_blank" rel="noreferrer">Open source ↗</a>
-    </div>
+    <div class="footer-brands"><img src="./assets/nplus-logo.webp" alt="NPLUS" /><strong>Kodo</strong></div>
+    <div class="footer-copy"><strong>Kodo / NPLUS</strong><a href="https://kodoresearch.org" target="_blank" rel="noreferrer">kodoresearch.org ↗</a></div>
     <p class="fine-print">Independent NPLUS project. Brawl Stars is a project target; no affiliation with Supercell is implied.</p>
   </div>
 </footer>
