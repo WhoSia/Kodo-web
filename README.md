@@ -1,22 +1,24 @@
 # Kodo-web
 
-Official web prototype for **Kodo**, an NPLUS project building a controllable Brawl Stars environment and training agents inside it.
+Official website for **Kodo**, an **NPLUS** project building a controllable Brawl Stars environment and training agents inside it.
 
-## Current public truth
+## Current state
 
-- Team: **NPLUS**
-- Project: **Kodo** (exact case; do not render as `KODO`)
-- Scope: the Brawl Stars agent project as a whole
 - Core game logic: implemented
 - UI: implemented
 - Gas system: in development
-- RL algorithm: not locked
-- Computer-vision approach: not locked
-- Team roster: intentionally omitted because membership/activity is expected to change
+- CV tooling: YOLO via Ultralytics + OpenCV
+- Entity detection: YOLO
+- Wall detection: YOLOv11 has been used
+- OpenCV utilities: template matching, HSV masking, colour counting
+- Perception targets: walls, players/allies/enemies, and ability-readiness signals
+- Projectile tracking: current visual-perception frontier
+
+## Live site
+
+- https://kodoresearch.org
 
 ## Run locally
-
-No build step is required.
 
 ```bash
 python -m http.server 4173
@@ -26,31 +28,14 @@ Then open `http://localhost:4173`.
 
 ## Add real Kodo media
 
-1. Put an approved image in `assets/`, preferably WebP.
-2. Edit `media-manifest.js` and change the corresponding slot from `conceptual` to `real`.
-3. Supply a truthful alt description and caption.
-4. Do not label synthetic/mock media as real project output.
+1. Put approved media in `assets/`.
+2. Update `media-manifest.js` and switch the slot from `conceptual` to `real`.
+3. Add a useful alt description and caption.
 
 See [`docs/MEDIA_INTAKE.md`](docs/MEDIA_INTAKE.md).
 
-## Deployment
+## Release v0.10.6
 
-This repository is intentionally dependency-free and suitable for a simple Git/Vercel import. No framework build command is required for the current version.
+This release integrates the Kodo/NPLUS visual identity, compresses public copy, adds current perception tooling, and keeps detailed authority history behind the public surface.
 
-## Brand rule
-
-`Kodo` is case-sensitive brand text. The team is `NPLUS`. Avoid merging them into a new formal name unless NPLUS explicitly decides to do so.
-
-## Repository collaboration
-
-The intended GitHub collaborator is `KR-penguin` with write access. This repository permission is separate from public team attribution on the website.
-
-See [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md) for the handoff settings.
-
-## Website structure v0.10.3
-
-The public page now follows `Overview → Stack → Roadmap → Status`. Architecture shown in Stack/Roadmap is explicitly a working direction, not a frozen implementation specification. Exact model/library names, dimensions, hyperparameters, and blocker IDs stay off the homepage until NPLUS confirms them. See [`docs/ARCHITECTURE_AUTHORITY_V0_10_3.md`](docs/ARCHITECTURE_AUTHORITY_V0_10_3.md).
-
-## Website narrative v0.10.4
-
-The public page now keeps authority bookkeeping mostly behind the scenes. It presents the system and roadmap directly, moves Colt from hero metadata into a first-target ambition section, and preserves exact candidate-stack disclosure rules in repository docs and release checks.
+See [`docs/PUBLIC_TRUTH_V0_10_6.md`](docs/PUBLIC_TRUTH_V0_10_6.md).
