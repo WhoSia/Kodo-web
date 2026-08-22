@@ -1,6 +1,6 @@
 # Kodo-web
 
-Official website for **Kodo**, an **NPLUS** project reconstructing Brawl Stars state from the screen and training agents on top of that perception layer.
+Official website for **Kodo**, an **NPLUS** project reconstructing Brawl Stars state from the screen and building agents on top of that perception layer.
 
 ## Current state
 
@@ -27,12 +27,8 @@ python -m http.server 4173
 
 Then open `http://localhost:4173`.
 
-## Design release v0.11.3
+## Design release v0.11.5
 
-v0.11.3 removed the public GitHub CTA, moved the Kodo crest into the top navigation, replaced the large Hero logo with a square instrument field, strengthened dark-mode card outlines, constrained the Roadmap width, and opened the System section into a schematic.
+v0.11.5 keeps the perception-first research identity and rebuilds the visual rhythm around an asymmetric Perception surface, pastel signal accents, a denser Hero instrument field, stronger dark-mode outlines, matched NPLUS/Kodo marks, and an editorial Roadmap timeline instead of five narrow cards.
 
-## Research-identity release v0.11.4
-
-v0.11.4 moves **Perception** ahead of **System**, reframes the Hero around `pixels → state`, and presents CNN / computer vision as the current research core while keeping reinforcement learning as the downstream learning layer.
-
-See [`docs/RESEARCH_IDENTITY_V0_11_4.md`](docs/RESEARCH_IDENTITY_V0_11_4.md).
+See [`docs/AESTHETIC_COURT_V0_11_5.md`](docs/AESTHETIC_COURT_V0_11_5.md).
