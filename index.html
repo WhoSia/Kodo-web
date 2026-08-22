@@ -1,271 +1,214 @@
 <!DOCTYPE html>
-
-<html class="no-js" data-brand="field-signal" lang="en">
+<html class="no-js" lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="Kodo by NPLUS — building a controllable Brawl Stars environment and training agents inside it." name="description"/>
-<meta content="#0f0f0e" name="theme-color"/>
-<title>Kodo — NPLUS</title>
-<link href="./styles.css" rel="stylesheet"/>
-<link href="./tokens.css" rel="stylesheet"/>
-<script>document.documentElement.classList.replace('no-js','js');</script>
-<link href="./favicon.svg" rel="icon" type="image/svg+xml"/></head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Kodo by NPLUS — building a Brawl Stars environment and training agents that learn to play." />
+  <meta name="theme-color" content="#070a0f" />
+  <title>Kodo — NPLUS</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  <script>document.documentElement.classList.replace('no-js','js');</script>
+</head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header" data-header="">
-<div class="shell header-grid">
-<a aria-label="Kodo home" class="wordmark" href="#top"><span>Kodo</span><small>NPLUS</small></a>
-<nav aria-label="Primary navigation" class="desktop-nav">
-<a href="#overview">Overview</a>
-<a href="#stack">Stack</a>
-<a href="#roadmap">Roadmap</a>
-<a href="#progress">Progress</a>
-</nav>
-<button aria-controls="mobile-nav" aria-expanded="false" class="menu-button" data-menu-button="" type="button">
-<span>Menu</span><span aria-hidden="true" class="menu-mark">+</span>
-</button>
-</div>
-<nav aria-label="Mobile navigation" class="mobile-nav shell" data-mobile-nav="" hidden="" id="mobile-nav">
-<a href="#overview">Overview</a>
-<a href="#stack">Stack</a>
-<a href="#roadmap">Roadmap</a>
-<a href="#progress">Progress</a>
-</nav>
+<header class="site-header" data-header>
+  <div class="shell header-row">
+    <a class="brand-lockup" href="#top" aria-label="Kodo home">
+      <img src="./assets/nplus-logo.webp" alt="" class="nplus-mark" />
+      <span class="brand-word">Kodo</span>
+    </a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="#system">System</a>
+      <a href="#perception">Perception</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#progress">Progress</a>
+    </nav>
+    <button class="menu-button" type="button" data-menu-button aria-expanded="false" aria-controls="mobile-nav">
+      <span>Menu</span><span aria-hidden="true">+</span>
+    </button>
+  </div>
+  <nav class="mobile-nav shell" id="mobile-nav" data-mobile-nav hidden aria-label="Mobile navigation">
+    <a href="#system">System</a>
+    <a href="#perception">Perception</a>
+    <a href="#roadmap">Roadmap</a>
+    <a href="#progress">Progress</a>
+  </nav>
 </header>
+
 <main id="main">
-<section aria-labelledby="hero-title" class="hero section-shell" id="top"><svg aria-hidden="true" class="hero-constellation" preserveaspectratio="none" viewbox="0 0 1440 760">
-<path class="constellation-orbit orbit-a" d="M760 82 C980 16 1268 82 1380 244"></path>
-<path class="constellation-orbit orbit-b" d="M820 238 C1015 150 1222 190 1360 388"></path>
-<path class="constellation-branch" d="M930 118 L1030 206 L1156 152 L1274 260 L1350 222"></path>
-<path class="constellation-branch faint" d="M1018 324 L1120 274 L1214 346 L1326 306"></path>
-<g class="constellation-stars">
-<circle cx="930" cy="118" r="2.4"></circle><circle cx="1030" cy="206" r="1.7"></circle><circle cx="1156" cy="152" r="2.2"></circle>
-<circle cx="1274" cy="260" r="1.8"></circle><circle cx="1350" cy="222" r="2.6"></circle><circle cx="1018" cy="324" r="1.5"></circle>
-<circle cx="1120" cy="274" r="2.0"></circle><circle cx="1214" cy="346" r="1.6"></circle><circle cx="1326" cy="306" r="2.2"></circle>
-</g>
-</svg>
-<div class="shell grid-12 hero-grid">
-<div class="hero-copy">
-<p class="eyebrow reveal brand-preserve">NPLUS / Kodo</p>
-<h1 class="display-xl line-reveal" id="hero-title"><span>Building agents</span><span>that learn to play.</span></h1>
-<p class="hero-lead reveal delay-2">Kodo rebuilds Brawl Stars as a controllable game environment, trains agents inside it, then carries the same decision loop back toward the live screen.</p>
-</div>
-<dl class="hero-meta reveal delay-3">
-<div><dt>Team</dt><dd>NPLUS</dd></div>
-<div><dt>Project</dt><dd>Kodo</dd></div>
-<div><dt>System</dt><dd>Game environment + agents</dd></div>
-<div><dt>Build state</dt><dd><span class="status-dot"></span>Game logic + UI implemented</dd></div>
-</dl>
-<figure aria-labelledby="fig-001-caption" class="hero-figure reveal-figure">
-<div class="figure-topline"><span>FIG. 001</span><span class="brand-preserve">Kodo ENVIRONMENT / SYSTEM VIEW</span></div>
-<div class="hero-media-slot" data-media-slot="hero"><img alt="" class="hero-real-media" data-real-media="hero" hidden=""/><div aria-label="Conceptual game environment schematic, not live project output" class="simulation-stage figure-visual" data-conceptual-fallback="hero" data-sim-visual="">
-<div aria-hidden="true" class="coord-ruler coord-ruler-x"><span>00</span><span>04</span><span>08</span><span>12</span><span>16</span></div>
-<div aria-hidden="true" class="coord-ruler coord-ruler-y"><span>A</span><span>B</span><span>C</span><span>D</span></div>
-<div aria-hidden="true" class="sim-grid-lines"></div>
-<div aria-hidden="true" class="obstacle obstacle-a"></div>
-<div aria-hidden="true" class="obstacle obstacle-b"></div>
-<div aria-hidden="true" class="obstacle obstacle-c"></div>
-<div aria-hidden="true" class="observation-window"><span>OBS</span></div>
-<svg aria-hidden="true" class="trajectory" preserveaspectratio="none" viewbox="0 0 1000 520">
-<path class="trajectory-path" d="M110,394 C280,280 340,360 486,252 S730,150 900,116"></path>
-<path class="projectile-path" d="M520,232 C650,164 752,164 866,202"></path>
-<g class="sample-points">
-<circle cx="110" cy="394" r="4"></circle><circle cx="232" cy="320" r="3"></circle><circle cx="355" cy="319" r="3"></circle><circle cx="486" cy="252" r="3"></circle><circle cx="628" cy="190" r="3"></circle><circle cx="770" cy="150" r="3"></circle><circle cx="900" cy="116" r="4"></circle>
-</g>
-<line class="aim-vector" x1="110" x2="900" y1="394" y2="116"></line>
-</svg>
-<div aria-hidden="true" class="agent-marker"><span></span><i></i></div>
-<div aria-hidden="true" class="target-marker"><span></span></div>
-<div aria-hidden="true" class="projectile p1"></div>
-<div aria-hidden="true" class="projectile p2"></div>
-<div class="sim-hud hud-a">STATE / FRAME</div>
-<div class="sim-hud hud-b">OBS / SCHEMATIC</div>
-<div class="sim-hud hud-c">PATH / SAMPLED</div>
-</div></div>
-<figcaption class="figure-caption" id="fig-001-caption"><span data-media-caption="hero">Environment structure and agent-state system view.</span><span data-media-state="hero">SYSTEM SCHEMATIC</span></figcaption>
-</figure>
-</div>
-</section>
-<section aria-labelledby="overview-title" class="overview section-shell ruled-top" id="overview">
-<div class="shell">
-<div class="section-heading grid-12">
-<p class="section-index">OVERVIEW / SYSTEM PREMISE</p>
-<div class="heading-cluster">
-<h2 class="section-title" id="overview-title">Build the world. Then learn inside it.</h2>
-<p class="section-deck">Kodo treats the environment as part of the learning system: implement the mechanics, expose a controllable state, train agents against it, then close the loop through visual observation.</p>
-</div>
-</div>
-<div class="system-premise" aria-label="Kodo system premise">
-<div class="premise-source" data-diagram-role="source">
-<span class="diagram-kicker">SOURCE / SIMULATION</span>
-<strong>Kodo environment</strong>
-<em>structured state</em>
-</div>
-<div class="premise-join" aria-hidden="true"><span></span></div>
-<div class="premise-actor" data-diagram-role="representation">
-<span class="diagram-kicker">ACTOR CONTRACT</span>
-<div class="premise-chain">
-<b>Observation</b><i>→</i><b>Representation</b><i>→</i><b>Memory</b><i>→</i><b>Policy</b><i>→</i><b>Action</b>
-</div>
-<span class="authority-tag">SHARED ACTOR LOOP</span>
-</div>
-<div class="premise-join reverse" aria-hidden="true"><span></span></div>
-<div class="premise-source" data-diagram-role="source">
-<span class="diagram-kicker">SOURCE / DEVICE</span>
-<strong>Screen → perception</strong>
-<em>screen perception</em>
-</div>
-<div class="premise-training" data-diagram-role="training">
-<span>TRAINING ONLY</span>
-<p>Training can exploit structured state; the device path has to rebuild what the actor needs from pixels.</p>
-</div>
-</div>
-</div>
+<section class="hero" id="top">
+  <svg class="hero-constellation" viewBox="0 0 1440 760" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M780 90 C980 25 1260 70 1390 250" />
+    <path d="M850 250 C1030 160 1230 190 1370 390" />
+    <path d="M950 120 L1040 205 L1160 150 L1280 265 L1360 220" />
+    <circle cx="950" cy="120" r="2.2"/><circle cx="1040" cy="205" r="1.8"/><circle cx="1160" cy="150" r="2.5"/><circle cx="1280" cy="265" r="1.8"/><circle cx="1360" cy="220" r="2.4"/>
+  </svg>
+  <div class="shell hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow"><img src="./assets/nplus-logo.webp" alt="NPLUS" /> <span>NPLUS / Kodo</span></p>
+      <h1>Building agents<br/>that learn to play.</h1>
+      <p class="hero-lead">Build the game. Train the agent. Bring the policy back to the screen.</p>
+      <div class="hero-facts" aria-label="Kodo current facts">
+        <span><b>BUILT</b> Game logic + UI</span>
+        <span><b>BUILDING</b> Gas system</span>
+        <span><b>VISION</b> YOLO + OpenCV</span>
+      </div>
+      <div class="hero-links">
+        <a href="#system">Explore the system ↓</a>
+        <a href="https://github.com/WhoSia/Kodo-web" target="_blank" rel="noreferrer">GitHub ↗</a>
+      </div>
+    </div>
+    <figure class="hero-brand" data-media-slot="hero">
+      <img class="hero-real-media" data-real-media="hero" hidden alt="" />
+      <div class="logo-stage" data-conceptual-fallback="hero">
+        <div class="logo-aura"></div>
+        <img src="./assets/kodo-logo.webp" alt="Kodo Project — RL AI for Brawl Stars" class="kodo-logo" />
+      </div>
+      <figcaption><span data-media-caption="hero">Kodo / NPLUS</span><span data-media-state="hero">PROJECT IDENTITY</span></figcaption>
+    </figure>
+  </div>
 </section>
 
-<section aria-labelledby="stack-title" class="stack section-shell ruled-top" id="stack">
-<div class="shell">
-<div class="section-heading grid-12">
-<p class="section-index">STACK / SHARED ACTOR LOOP</p>
-<div class="heading-cluster">
-<h2 class="section-title" id="stack-title">One actor loop, two ways in.</h2>
-<p class="section-deck">In simulation, Kodo reads structured state. On device, perception reconstructs the same actor-facing contract. From there the loop stays recognizable: observe, represent, remember, decide, act.</p>
-</div>
-</div>
-<div class="stack-flow" aria-label="Kodo working algorithm stack">
-<article class="stack-node" data-diagram-role="source">
-<span>01 / SOURCE</span>
-<h3>Simulation + device</h3>
-<p>Structured state in Kodo; screen-derived state on device.</p>
-<em>two sources</em>
-</article>
-<div class="flow-arrow" aria-hidden="true">→</div>
-<article class="stack-node" data-diagram-role="representation">
-<span>02 / OBSERVATION</span>
-<h3>Shared actor input</h3>
-<p>Keep the policy interface stable while the observation source changes.</p>
-<em>one contract</em>
-</article>
-<div class="flow-arrow" aria-hidden="true">→</div>
-<article class="stack-node" data-diagram-role="representation">
-<span>03 / REPRESENT</span>
-<h3>Encoder + memory</h3>
-<p>Turn game entities and temporal context into a state the policy can use.</p>
-<em>state</em>
-</article>
-<div class="flow-arrow" aria-hidden="true">→</div>
-<article class="stack-node" data-diagram-role="policy">
-<span>04 / POLICY</span>
-<h3>Multi-agent policy</h3>
-<p>Learn decisions from human play and multi-agent experience instead of scripting behavior.</p>
-<em>learn</em>
-</article>
-<div class="flow-arrow" aria-hidden="true">→</div>
-<article class="stack-node" data-diagram-role="policy">
-<span>05 / ACTION</span>
-<h3>Game control</h3>
-<p>Return decisions to the environment — and eventually to the device.</p>
-<em>act</em>
-</article>
-</div>
-<div class="stack-lanes">
-<div class="stack-lane" data-diagram-role="training"><strong>TRAINING PATH</strong><span>structured state + optimisation can live here</span></div>
-<div class="stack-lane deploy" data-diagram-role="deploy"><strong>DEVICE PATH</strong><span>perception recreates actor input from the screen</span></div>
-</div>
-</div>
+<section class="section ruled" id="system">
+  <div class="shell">
+    <div class="section-heading">
+      <p class="section-index">01 / SYSTEM</p>
+      <h2>One game system. Two ways in.</h2>
+      <p>Structured state in simulation. Reconstructed state on device. One decision loop connects both.</p>
+    </div>
+    <div class="system-flow" aria-label="Kodo system flow">
+      <article class="system-node source-node">
+        <span>SIMULATION</span>
+        <h3>Kodo environment</h3>
+        <p>Mechanics, UI and structured game state.</p>
+      </article>
+      <div class="system-arrow">→</div>
+      <article class="system-node actor-node">
+        <span>ACTOR LOOP</span>
+        <h3>Observe → represent → remember → decide → act</h3>
+        <p>The policy-facing loop stays coherent across both worlds.</p>
+      </article>
+      <div class="system-arrow reverse">←</div>
+      <article class="system-node source-node device-node">
+        <span>DEVICE</span>
+        <h3>Screen → perception</h3>
+        <p>YOLO + OpenCV rebuild the state from pixels.</p>
+      </article>
+    </div>
+  </div>
 </section>
 
-<section aria-labelledby="roadmap-title" class="roadmap section-shell ruled-top" id="roadmap">
-<div class="shell">
-<div class="section-heading grid-12">
-<p class="section-index">PLAN / TRAINING ROADMAP</p>
-<div class="heading-cluster">
-<h2 class="section-title" id="roadmap-title">From human play to autonomous play.</h2>
-<p class="section-deck">Use real play to bootstrap the policy, turn imitation into self-play, then take the loop back to the device.</p>
-</div>
-</div>
-<div class="roadmap-flow" aria-label="Kodo working training roadmap">
-<article class="roadmap-gate" data-diagram-role="risk">
-<span>GATE</span>
-<h3>Make the environment worth learning from</h3>
-<p>Close the observation and control failures that would poison everything downstream.</p>
-<em>before training</em>
-</article>
-<div class="roadmap-arrow" aria-hidden="true">→</div>
-<article class="roadmap-stage" data-diagram-role="source"><span>01</span><h3>Human play video</h3><p>Record strong play in the real game.</p><em>data source</em></article>
-<div class="roadmap-arrow" aria-hidden="true">→</div>
-<article class="roadmap-stage" data-diagram-role="source"><span>02</span><h3>CV reverse-engineering</h3><p>Recover observations and actions from recorded play.</p><em>data bridge</em></article>
-<div class="roadmap-arrow" aria-hidden="true">→</div>
-<article class="roadmap-stage" data-diagram-role="representation"><span>03</span><h3>Behaviour cloning</h3><p>Give the policy a strong starting point before self-play.</p><em>imitation</em></article>
-<div class="roadmap-arrow" aria-hidden="true">→</div>
-<article class="roadmap-stage" data-diagram-role="policy"><span>04</span><h3>Multi-agent self-play</h3><p>Let agents create a harder curriculum for one another.</p><em>reinforcement</em></article>
-<div class="roadmap-arrow" aria-hidden="true">→</div>
-<article class="roadmap-stage" data-diagram-role="source"><span>05</span><h3>Device test</h3><p>Bring the policy back to the screen and stress the full control loop.</p><em>sim → device</em></article>
-</div>
-<div class="roadmap-notes">
-<p><strong>ONE PERCEPTION THREAD</strong> The perception work that reconstructs human play can also become the path back into device observations.</p>
-<p><strong>KEEP WHAT HUMAN PLAY TAUGHT</strong> Imitation is a foundation for later learning, not a disposable prelude.</p>
-</div>
-</div>
+<section class="section ruled" id="perception">
+  <div class="shell">
+    <div class="section-heading">
+      <p class="section-index">02 / PERCEPTION</p>
+      <h2>See what matters.</h2>
+      <p>Kodo’s visual stack turns the live screen into state the agent can use.</p>
+    </div>
+    <div class="perception-grid">
+      <article class="perception-card blue">
+        <span>YOLO / ULTRALYTICS</span>
+        <h3>Entities + walls</h3>
+        <p>Detect players, allies, enemies and map geometry.</p>
+      </article>
+      <article class="perception-card green">
+        <span>OPENCV</span>
+        <h3>Templates + colour</h3>
+        <p>Template matching, HSV masking and colour counting.</p>
+      </article>
+      <article class="perception-card violet">
+        <span>GAME STATE</span>
+        <h3>Ability readiness</h3>
+        <p>Track signals such as super, gadget and hypercharge readiness.</p>
+      </article>
+      <article class="perception-card frontier">
+        <span>FRONTIER</span>
+        <h3>Projectile tracking</h3>
+        <p>The hardest visual state — and a clean boundary between simulation and device perception.</p>
+      </article>
+    </div>
+  </div>
 </section>
 
-<section aria-labelledby="progress-title" class="status-section section-shell ruled-top" id="progress">
-<div class="shell">
-<div class="section-heading grid-12">
-<p class="section-index">PROGRESS / NOW → NEXT</p>
-<div class="heading-cluster">
-<h2 class="section-title" id="progress-title">The game system is taking shape. Learning comes next.</h2>
-<p class="section-deck">Core game logic and UI are in place. Kodo is extending the environment now, then moving through human data, imitation, multi-agent learning, and the device loop.</p>
-</div>
-</div>
-<div class="status-matrix">
-<section class="status-column">
-<p class="status-column-label">NOW</p>
-<div class="status-line"><span>Core game logic</span><strong>Implemented</strong></div>
-<div class="status-line"><span>User interface</span><strong>Implemented</strong></div>
-<div class="status-line"><span>Gas system</span><strong data-status="active">In development</strong></div>
-</section>
-<section class="status-column">
-<p class="status-column-label">NEXT</p>
-<div class="status-line"><span>Human-play data</span><strong>Collect</strong></div>
-<div class="status-line"><span>Behaviour cloning</span><strong>Train</strong></div>
-<div class="status-line"><span>Multi-agent learning</span><strong>Scale</strong></div>
-</section>
-<section class="status-column">
-<p class="status-column-label">THEN</p>
-<div class="status-line"><span>Device perception</span><strong>Connect</strong></div>
-<div class="status-line"><span>Delay + aim robustness</span><strong>Stress-test</strong></div>
-<div class="status-line"><span>Wider game coverage</span><strong>Expand</strong></div>
-</section>
-</div>
-</div>
+<section class="section ruled" id="roadmap">
+  <div class="shell">
+    <div class="section-heading">
+      <p class="section-index">03 / ROADMAP</p>
+      <h2>Record. Imitate. Compete. Deploy.</h2>
+      <p>Real play bootstraps the policy. Self-play pushes it further. The device closes the loop.</p>
+    </div>
+    <div class="roadmap-flow">
+      <article><span>01</span><h3>Record</h3><p>Capture strong human play.</p></article>
+      <i>→</i>
+      <article><span>02</span><h3>Recover</h3><p>Turn video into observations and actions.</p></article>
+      <i>→</i>
+      <article><span>03</span><h3>Imitate</h3><p>Bootstrap the policy from human play.</p></article>
+      <i>→</i>
+      <article><span>04</span><h3>Compete</h3><p>Scale with multi-agent self-play.</p></article>
+      <i>→</i>
+      <article><span>05</span><h3>Deploy</h3><p>Bring the loop back to the screen.</p></article>
+    </div>
+  </div>
 </section>
 
-<section aria-labelledby="ambition-title" class="ambition section-shell ruled-top" id="ambition">
-<div class="shell grid-12 ambition-grid">
-<p class="section-index brand-preserve">FIRST TARGET / COLT</p>
-<div class="ambition-copy">
-<h2 class="ambition-title" id="ambition-title">Start with Colt.<br/>Don’t stop there.</h2>
-<p class="ambition-lead">One brawler is enough to force the whole stack to become real: movement, aim, projectiles, observation, memory, policy, and control. Kodo starts narrow so the system can become concrete — then expands the problem.</p>
-</div>
-<div class="ambition-steps" aria-label="Kodo long-range direction">
-<div><span>01</span><strong>MASTER THE LOOP</strong><em>Move. Aim. Dodge. Shoot.</em></div>
-<div><span>02</span><strong>WIDEN THE GAME</strong><em>More maps, matchups, mechanics.</em></div>
-<div><span>03</span><strong>CLOSE THE GAP</strong><em>From simulator to the screen.</em></div>
-</div>
-</div>
+<section class="section ruled" id="progress">
+  <div class="shell">
+    <div class="section-heading">
+      <p class="section-index">04 / PROGRESS</p>
+      <h2>Build first. Learn next.</h2>
+    </div>
+    <div class="progress-grid">
+      <article>
+        <span>BUILT</span>
+        <strong>Core game logic</strong>
+        <strong>User interface</strong>
+      </article>
+      <article>
+        <span>BUILDING</span>
+        <strong>Gas system</strong>
+        <strong>Perception bridge</strong>
+      </article>
+      <article>
+        <span>NEXT</span>
+        <strong>Human-play data</strong>
+        <strong>Imitation → self-play</strong>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="ambition ruled" id="ambition">
+  <div class="shell ambition-grid">
+    <p class="section-index">FIRST TARGET / COLT</p>
+    <div>
+      <h2>Start with Colt.<br/>Scale the system.</h2>
+      <p>One brawler is enough to make the whole loop real: movement, aim, timing, state, policy and control. Get it right once, then widen the game.</p>
+    </div>
+    <div class="ambition-steps">
+      <span>MASTER THE LOOP</span>
+      <span>WIDEN THE GAME</span>
+      <span>CLOSE THE GAP</span>
+    </div>
+  </div>
 </section>
 </main>
-<footer class="site-footer ruled-top">
-<div class="shell grid-12 footer-grid">
-<div class="footer-title">Kodo <small>/ NPLUS</small></div>
-<p>Game-system engineering + agent learning.</p>
-<div class="footer-links"><span>Build the game. Train the agent. Close the loop.</span></div>
-<p class="copyright">© 2026</p>
-<p class="affiliation-note">Independent NPLUS project. Brawl Stars identifies the project target; no affiliation with Supercell is implied.</p>
-</div>
+
+<footer class="site-footer ruled">
+  <div class="shell footer-grid">
+    <div class="footer-brands">
+      <img src="./assets/nplus-logo.webp" alt="NPLUS" />
+      <img src="./assets/kodo-logo.webp" alt="Kodo Project" />
+    </div>
+    <div class="footer-copy">
+      <strong>Kodo / NPLUS</strong>
+      <a href="https://kodoresearch.org" target="_blank" rel="noreferrer">kodoresearch.org ↗</a>
+      <a href="https://github.com/WhoSia/Kodo-web" target="_blank" rel="noreferrer">Open source ↗</a>
+    </div>
+    <p class="fine-print">Independent NPLUS project. Brawl Stars is a project target; no affiliation with Supercell is implied.</p>
+  </div>
 </footer>
-<script src="./media-manifest.js"></script><script src="./script.js"></script>
+<script src="./media-manifest.js"></script>
+<script src="./script.js"></script>
 </body>
 </html>
