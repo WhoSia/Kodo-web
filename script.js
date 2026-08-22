@@ -6,6 +6,7 @@
   const themeButton = document.querySelector('[data-theme-toggle]');
   const themeLabel = document.querySelector('[data-theme-label]');
   const themeColor = document.querySelector('[data-theme-color]');
+  const THEME_KEY = 'kodo-theme-v0112';
 
   const applyTheme = (theme, persist = true) => {
     const next = theme === 'light' ? 'light' : 'dark';
@@ -14,12 +15,20 @@
     if (themeButton) themeButton.setAttribute('aria-label', `Switch to ${next === 'dark' ? 'light' : 'dark'} theme`);
     if (themeColor) themeColor.setAttribute('content', next === 'dark' ? '#070a0f' : '#efe8da');
     if (persist) {
-      try { localStorage.setItem('kodo-theme', next); } catch (_) {}
+      try { localStorage.setItem(THEME_KEY, next); } catch (_) {}
     }
   };
 
-  applyTheme(root.dataset.theme, false);
+  let initialTheme = 'dark';
+  try { initialTheme = localStorage.getItem(THEME_KEY) || 'dark'; } catch (_) {}
+  applyTheme(initialTheme, false);
   themeButton?.addEventListener('click', () => applyTheme(root.dataset.theme === 'dark' ? 'light' : 'dark'));
+
+  /* v0.11.2 mark refresh: use a new filename so old CDN/browser image caches cannot win. */
+  document.querySelectorAll('.kodo-logo, .footer-brands img:last-child').forEach((img) => {
+    img.src = './assets/kodo-logo-v0112.webp';
+    img.decoding = 'async';
+  });
 
   const closeMenu = () => {
     if (!button || !mobileNav) return;
