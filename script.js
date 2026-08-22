@@ -24,9 +24,9 @@
   applyTheme(initialTheme, false);
   themeButton?.addEventListener('click', () => applyTheme(root.dataset.theme === 'dark' ? 'light' : 'dark'));
 
-  /* v0.11.2 mark refresh: use a new filename so old CDN/browser image caches cannot win. */
+  /* v0.11.2 mark refresh: new filename avoids stale CDN/browser image caches. */
   document.querySelectorAll('.kodo-logo, .footer-brands img:last-child').forEach((img) => {
-    img.src = './assets/kodo-logo-v0112.webp';
+    img.src = './assets/kodo-logo-v0112.svg';
     img.decoding = 'async';
   });
 
