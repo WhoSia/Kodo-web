@@ -21,13 +21,15 @@ banned_public = [
     'authority basis','exact stack not locked','defensive','provisional'
 ]
 required = [
-    'Building agents','YOLO + OpenCV','Projectile tracking','Start with Colt.',
-    'kodoresearch.org','assets/kodo-crest-v0113.webp','KODO / SYSTEM FIELD'
+    'Building agents','The hard part is seeing the game.','Pixels first. Policy second.',
+    'Perception / CNN','YOLO + OpenCV','Projectile tracking','Start with Colt.',
+    'kodoresearch.org','assets/kodo-crest-v0113.webp','KODO / PERCEPTION FIELD'
 ]
 checks = {
     'kodo_case': 'Kodo' in html and '>KODO<' not in html,
     'nplus': 'NPLUS' in html,
     'required_copy': all(x in html for x in required),
+    'perception_before_system': html.index('id="perception"') < html.index('id="system"'),
     'github_public_link_removed': 'github.com/WhoSia/Kodo-web' not in html,
     'no_defensive_public_copy': not any(x.lower() in html.lower() for x in banned_public),
     'unique_ids': len(p.ids) == len(set(p.ids)),
@@ -39,6 +41,6 @@ checks = {
 }
 for k,v in checks.items(): print(f'{k}: {"PASS" if v else "FAIL"}')
 if not all(checks.values()):
-    print('AESTHETIC_SURFACE_GATE=FAIL')
+    print('PERCEPTION_FIRST_GATE=FAIL')
     raise SystemExit(1)
-print('AESTHETIC_SURFACE_GATE=PASS')
+print('PERCEPTION_FIRST_GATE=PASS')

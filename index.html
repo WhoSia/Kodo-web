@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Kodo by NPLUS — building a Brawl Stars environment and training agents that learn to play." />
+  <meta name="description" content="Kodo by NPLUS — reconstructing game state from pixels and training agents that learn to play." />
   <meta name="theme-color" content="#070a0f" data-theme-color />
   <title>Kodo — NPLUS</title>
   <link rel="stylesheet" href="./styles.css" />
@@ -31,8 +31,8 @@
       <img src="./assets/kodo-crest-v0113.webp" alt="" class="kodo-crest-mini" />
     </a>
     <nav class="desktop-nav" aria-label="Primary navigation">
-      <a href="#system">System</a>
       <a href="#perception">Perception</a>
+      <a href="#system">System</a>
       <a href="#roadmap">Roadmap</a>
       <a href="#progress">Progress</a>
     </nav>
@@ -44,8 +44,8 @@
     </button>
   </div>
   <nav class="mobile-nav shell" id="mobile-nav" data-mobile-nav hidden aria-label="Mobile navigation">
-    <a href="#system">System</a>
     <a href="#perception">Perception</a>
+    <a href="#system">System</a>
     <a href="#roadmap">Roadmap</a>
     <a href="#progress">Progress</a>
   </nav>
@@ -63,21 +63,19 @@
     <div class="hero-copy">
       <p class="eyebrow"><span>NPLUS / Kodo</span></p>
       <h1>Building agents<br/>that learn to play.</h1>
-      <p class="hero-lead">Build the game. Train the agent. Bring the policy back to the screen.</p>
+      <p class="hero-lead">The hard part is seeing the game. Kodo turns pixels into usable state, then learns what to do with it.</p>
       <div class="hero-facts" aria-label="Kodo current facts">
+        <span><b>CORE</b> Perception / CNN</span>
+        <span><b>TOOLING</b> YOLO + OpenCV</span>
         <span><b>BUILT</b> Game logic + UI</span>
-        <span><b>BUILDING</b> Gas system</span>
-        <span><b>VISION</b> YOLO + OpenCV</span>
       </div>
-      <div class="hero-links">
-        <a href="#system">Explore the system ↓</a>
-      </div>
+      <div class="hero-links"><a href="#perception">Explore perception ↓</a></div>
     </div>
 
-    <figure class="hero-instrument" aria-label="Conceptual Kodo system field">
+    <figure class="hero-instrument" aria-label="Conceptual Kodo perception field">
       <div class="instrument-stage">
-        <div class="instrument-meta"><span>KODO / SYSTEM FIELD</span><span>SIM ⇄ DEVICE</span></div>
-        <svg class="instrument-graph" viewBox="0 0 600 600" role="img" aria-label="Decorative graph of connected system nodes">
+        <div class="instrument-meta"><span>KODO / PERCEPTION FIELD</span><span>PIXELS → STATE</span></div>
+        <svg class="instrument-graph" viewBox="0 0 600 600" role="img" aria-label="Decorative graph of connected perception nodes">
           <g class="instrument-arcs">
             <path d="M62 414 C176 146 426 76 558 250" />
             <path d="M102 494 C246 280 412 286 536 506" />
@@ -102,55 +100,42 @@
             <path d="M114 150 L117 159 L126 162 L117 165 L114 174 L111 165 L102 162 L111 159 Z" />
           </g>
         </svg>
-        <div class="instrument-corner corner-a"></div>
-        <div class="instrument-corner corner-b"></div>
+        <div class="instrument-corner corner-a"></div><div class="instrument-corner corner-b"></div>
       </div>
-      <figcaption><span>OBSERVE / REPRESENT / DECIDE / ACT</span><span>SCHEMATIC</span></figcaption>
+      <figcaption><span>DETECT / RECOVER / DECIDE / ACT</span><span>SCHEMATIC</span></figcaption>
     </figure>
-  </div>
-</section>
-
-<section class="section ruled" id="system">
-  <div class="shell">
-    <div class="section-heading">
-      <p class="section-index">01 / SYSTEM</p>
-      <h2>One game system. Two ways in.</h2>
-      <p>Structured state in simulation. Reconstructed state on device. One decision loop connects both.</p>
-    </div>
-    <div class="system-flow open-system" aria-label="Kodo system flow">
-      <article class="system-node source-node">
-        <span>SIMULATION</span>
-        <h3>Kodo environment</h3>
-        <p>Mechanics, UI and structured game state.</p>
-      </article>
-      <div class="system-arrow">→</div>
-      <article class="system-node actor-node">
-        <span>ACTOR LOOP</span>
-        <h3>Observe → represent → remember → decide → act</h3>
-        <p>The same decision loop bridges simulation and screen perception.</p>
-      </article>
-      <div class="system-arrow reverse">←</div>
-      <article class="system-node source-node device-node">
-        <span>DEVICE</span>
-        <h3>Screen → perception</h3>
-        <p>YOLO + OpenCV rebuild the state from pixels.</p>
-      </article>
-    </div>
   </div>
 </section>
 
 <section class="section ruled" id="perception">
   <div class="shell">
     <div class="section-heading">
-      <p class="section-index">02 / PERCEPTION</p>
-      <h2>See what matters.</h2>
-      <p>Kodo’s visual stack turns the live screen into state the agent can use.</p>
+      <p class="section-index">01 / PERCEPTION</p>
+      <h2>Pixels first. Policy second.</h2>
+      <p>Before an agent can learn, Kodo has to recover the game from the screen: who is where, what is ready, and what the map looks like.</p>
     </div>
     <div class="perception-grid">
       <article class="perception-card blue"><span>YOLO / ULTRALYTICS</span><h3>Entities + walls</h3><p>Detect players, allies, enemies and map geometry.</p></article>
       <article class="perception-card green"><span>OPENCV</span><h3>Templates + colour</h3><p>Template matching, HSV masking and colour counting.</p></article>
-      <article class="perception-card violet"><span>GAME STATE</span><h3>Ability readiness</h3><p>Track signals such as super, gadget and hypercharge readiness.</p></article>
-      <article class="perception-card frontier"><span>FRONTIER</span><h3>Projectile tracking</h3><p>The hardest visual state — and a clean boundary between simulation and device perception.</p></article>
+      <article class="perception-card violet"><span>STATE RECOVERY</span><h3>Position + readiness</h3><p>Recover wall and player positions plus super, gadget and hypercharge signals.</p></article>
+      <article class="perception-card frontier"><span>HARDEST SIGNAL</span><h3>Projectile tracking</h3><p>The most difficult state to recover reliably from the live screen.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section ruled" id="system">
+  <div class="shell">
+    <div class="section-heading">
+      <p class="section-index">02 / SYSTEM</p>
+      <h2>One loop. Two sources.</h2>
+      <p>Simulation exposes state directly. On device, perception has to reconstruct it from pixels before the same decision loop can act.</p>
+    </div>
+    <div class="system-flow open-system" aria-label="Kodo system flow">
+      <article class="system-node source-node"><span>SIMULATION</span><h3>Kodo environment</h3><p>Mechanics, UI and structured game state.</p></article>
+      <div class="system-arrow">→</div>
+      <article class="system-node actor-node"><span>ACTOR LOOP</span><h3>Observe → represent → remember → decide → act</h3><p>The policy consumes state after the observation layer has done its job.</p></article>
+      <div class="system-arrow reverse">←</div>
+      <article class="system-node source-node device-node"><span>DEVICE</span><h3>Pixels → recovered state</h3><p>Computer vision rebuilds the game state from the live screen.</p></article>
     </div>
   </div>
 </section>
@@ -159,12 +144,12 @@
   <div class="shell">
     <div class="section-heading">
       <p class="section-index">03 / ROADMAP</p>
-      <h2>Record. Imitate. Compete. Deploy.</h2>
-      <p>Real play bootstraps the policy. Self-play pushes it further. The device closes the loop.</p>
+      <h2>Capture. Recover. Imitate. Compete. Deploy.</h2>
+      <p>Perception creates the data layer. Learning starts once the state is reliable.</p>
     </div>
     <div class="roadmap-flow">
-      <article><span>01</span><h3>Record</h3><p>Capture strong human play.</p></article><i>→</i>
-      <article><span>02</span><h3>Recover</h3><p>Turn video into observations and actions.</p></article><i>→</i>
+      <article><span>01</span><h3>Capture</h3><p>Record strong human play.</p></article><i>→</i>
+      <article><span>02</span><h3>Recover</h3><p>Turn video into state and actions.</p></article><i>→</i>
       <article><span>03</span><h3>Imitate</h3><p>Bootstrap the policy from human play.</p></article><i>→</i>
       <article><span>04</span><h3>Compete</h3><p>Scale with multi-agent self-play.</p></article><i>→</i>
       <article><span>05</span><h3>Deploy</h3><p>Bring the loop back to the screen.</p></article>
@@ -174,14 +159,11 @@
 
 <section class="section ruled" id="progress">
   <div class="shell">
-    <div class="section-heading">
-      <p class="section-index">04 / PROGRESS</p>
-      <h2>Build first. Learn next.</h2>
-    </div>
+    <div class="section-heading"><p class="section-index">04 / PROGRESS</p><h2>Build the vision layer. Then scale the policy.</h2></div>
     <div class="progress-grid">
       <article><span>BUILT</span><strong>Core game logic</strong><strong>User interface</strong></article>
       <article><span>BUILDING</span><strong>Gas system</strong><strong>Perception bridge</strong></article>
-      <article><span>NEXT</span><strong>Human-play data</strong><strong>Imitation → self-play</strong></article>
+      <article><span>RESEARCH CORE</span><strong>Screen → state</strong><strong>CNN + classical CV</strong></article>
     </div>
   </div>
 </section>
@@ -189,8 +171,8 @@
 <section class="ambition ruled" id="ambition">
   <div class="shell ambition-grid">
     <p class="section-index">FIRST TARGET / COLT</p>
-    <div><h2>Start with Colt.<br/>Scale the system.</h2><p>One brawler is enough to make the whole loop real: movement, aim, timing, state, policy and control. Get it right once, then widen the game.</p></div>
-    <div class="ambition-steps"><span>MASTER THE LOOP</span><span>WIDEN THE GAME</span><span>CLOSE THE GAP</span></div>
+    <div><h2>Start with Colt.<br/>Scale the system.</h2><p>One brawler is enough to make the whole loop real: perception, movement, aim, timing, state, policy and control. Get it right once, then widen the game.</p></div>
+    <div class="ambition-steps"><span>SEE THE GAME</span><span>MASTER THE LOOP</span><span>WIDEN THE GAME</span></div>
   </div>
 </section>
 </main>

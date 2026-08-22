@@ -1,18 +1,19 @@
 # Kodo-web
 
-Official website for **Kodo**, an **NPLUS** project building a controllable Brawl Stars environment and training agents inside it.
+Official website for **Kodo**, an **NPLUS** project reconstructing Brawl Stars state from the screen and training agents on top of that perception layer.
 
 ## Current state
 
 - Core game logic: implemented
 - UI: implemented
 - Gas system: in development
+- Research core: screen-to-state perception / CNN
 - CV tooling: YOLO via Ultralytics + OpenCV
 - Entity detection: YOLO
 - Wall detection: YOLOv11 has been used
 - OpenCV utilities: template matching, HSV masking, colour counting
-- Perception targets: walls, players/allies/enemies, and ability-readiness signals
-- Projectile tracking: current visual-perception frontier
+- Perception targets: wall positions, player/ally/enemy positions, and ability-readiness signals
+- Projectile tracking: current hardest visual state to recover reliably
 
 ## Live site
 
@@ -28,6 +29,10 @@ Then open `http://localhost:4173`.
 
 ## Design release v0.11.3
 
-This release removes the public GitHub CTA, moves the Kodo crest into the top navigation, replaces the large Hero logo with a square system-field visual, strengthens dark-mode card outlines, constrains the Roadmap width, and shifts the System section toward an open schematic.
+v0.11.3 removed the public GitHub CTA, moved the Kodo crest into the top navigation, replaced the large Hero logo with a square instrument field, strengthened dark-mode card outlines, constrained the Roadmap width, and opened the System section into a schematic.
 
-See [`docs/AESTHETIC_COURT_V0_11_3.md`](docs/AESTHETIC_COURT_V0_11_3.md).
+## Research-identity release v0.11.4
+
+v0.11.4 moves **Perception** ahead of **System**, reframes the Hero around `pixels → state`, and presents CNN / computer vision as the current research core while keeping reinforcement learning as the downstream learning layer.
+
+See [`docs/RESEARCH_IDENTITY_V0_11_4.md`](docs/RESEARCH_IDENTITY_V0_11_4.md).
