@@ -46,3 +46,7 @@ This repository is intentionally dependency-free and suitable for a simple Git/V
 The intended GitHub collaborator is `KR-penguin` with write access. This repository permission is separate from public team attribution on the website.
 
 See [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md) for the handoff settings.
+
+## Website structure v0.10.3
+
+The public page now follows `Overview → Stack → Roadmap → Status`. Architecture shown in Stack/Roadmap is explicitly a working direction, not a frozen implementation specification. Exact model/library names, dimensions, hyperparameters, and blocker IDs stay off the homepage until NPLUS confirms them. See [`docs/ARCHITECTURE_AUTHORITY_V0_10_3.md`](docs/ARCHITECTURE_AUTHORITY_V0_10_3.md).

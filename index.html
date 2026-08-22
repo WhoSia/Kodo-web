@@ -17,18 +17,20 @@
 <div class="shell header-grid">
 <a aria-label="Kodo home" class="wordmark" href="#top"><span>Kodo</span><small>NPLUS</small></a>
 <nav aria-label="Primary navigation" class="desktop-nav">
-<a href="#build">Build</a>
-<a href="#learning">Learning</a>
-<a href="#system">System</a>
+<a href="#overview">Overview</a>
+<a href="#stack">Stack</a>
+<a href="#roadmap">Roadmap</a>
+<a href="#status">Status</a>
 </nav>
 <button aria-controls="mobile-nav" aria-expanded="false" class="menu-button" data-menu-button="" type="button">
 <span>Menu</span><span aria-hidden="true" class="menu-mark">+</span>
 </button>
 </div>
 <nav aria-label="Mobile navigation" class="mobile-nav shell" data-mobile-nav="" hidden="" id="mobile-nav">
-<a href="#build">Build</a>
-<a href="#learning">Learning</a>
-<a href="#system">System</a>
+<a href="#overview">Overview</a>
+<a href="#stack">Stack</a>
+<a href="#roadmap">Roadmap</a>
+<a href="#status">Status</a>
 </nav>
 </header>
 <main id="main">
@@ -85,166 +87,160 @@
 </figure>
 </div>
 </section>
-<section aria-labelledby="project-title" class="project section-shell ruled-top" id="build">
-<div class="shell grid-12 project-grid">
-<p class="section-index brand-preserve">PROJECT / Kodo</p>
-<div class="project-copy">
-<h2 class="display-l" id="project-title">Kodo</h2>
-<p class="lead">Kodo is an NPLUS project focused on rebuilding Brawl Stars as a controllable game system and training agents inside it. Game logic and UI come first; RL and computer-vision choices remain open until they are actually decided.</p>
-</div>
-<dl class="meta-stack">
-<div><dt>Target game</dt><dd>Brawl Stars</dd></div>
-<div><dt>Target brawler</dt><dd>Colt</dd></div>
-<div><dt>Game logic</dt><dd>Implemented</dd></div>
-<div><dt>UI</dt><dd>Implemented</dd></div>
-<div><dt>Gas system</dt><dd>In development</dd></div>
-</dl>
-</div>
-<div aria-label="Kodo project pipeline" class="shell scope-rail">
-<div><span>01</span><strong>BUILD</strong><em>core implemented</em></div>
-<div><span>02</span><strong>EXTEND</strong><em>gas in progress</em></div>
-<div><span>03</span><strong>TRAIN</strong><em>algorithm open</em></div>
-<div><span>04</span><strong>PERCEIVE</strong><em>CV open</em></div>
-</div>
-</section>
-<section aria-labelledby="research-title" class="research section-shell ruled-top" id="learning">
+<section aria-labelledby="overview-title" class="overview section-shell ruled-top" id="overview">
 <div class="shell">
 <div class="section-heading grid-12">
-<p class="section-index">PROJECT LAYERS / 04</p>
+<p class="section-index">OVERVIEW / CURRENT DIRECTION</p>
 <div class="heading-cluster">
-<h2 class="section-title" id="research-title">Build → learn</h2>
-<p class="section-deck">Kodo is closer to game-system engineering with an agent-learning layer than to a generic “AI research” landing page.</p>
+<h2 class="section-title" id="overview-title">One game system. Two observation paths.</h2>
+<p class="section-deck">The current architecture direction keeps a stable actor-facing contract while the observation source changes between simulation and a device perception path. Exact model and library choices remain under review.</p>
 </div>
 </div>
-<div class="research-index">
-<article class="research-row">
-<span class="research-number">01</span>
-<h3>Game Environment</h3>
-<p>Reconstructing the playable world as a controllable system that can be reset, instrumented, and used repeatedly for agent training.</p>
-<span aria-hidden="true" class="row-arrow">↗</span>
-</article>
-<article class="research-row">
-<span class="research-number">02</span>
-<h3>Game Logic + UI</h3>
-<p>Core game logic and the interface layer are reported implemented; the gas system is the current environment extension.</p>
-<span aria-hidden="true" class="row-arrow">↗</span>
-</article>
-<article class="research-row">
-<span class="research-number">03</span>
-<h3>Reinforcement Learning</h3>
-<p>The learning layer comes after the game system. The RL algorithm is intentionally shown as undecided rather than prematurely branded around one stack.</p>
-<span aria-hidden="true" class="row-arrow">↗</span>
-</article>
-<article class="research-row">
-<span class="research-number">04</span>
-<h3>Computer Vision</h3>
-<p>Computer vision remains an open design decision. No specific deployment or sim-to-real architecture is claimed yet.</p>
-<span aria-hidden="true" class="row-arrow">↗</span>
-</article>
+<div class="system-premise" aria-label="Working Kodo system premise">
+<div class="premise-source" data-diagram-role="source">
+<span class="diagram-kicker">SOURCE / SIMULATION</span>
+<strong>Kodo environment</strong>
+<em>structured state</em>
+</div>
+<div class="premise-join" aria-hidden="true"><span></span></div>
+<div class="premise-actor" data-diagram-role="representation">
+<span class="diagram-kicker">ACTOR CONTRACT</span>
+<div class="premise-chain">
+<b>Observation</b><i>→</i><b>Representation</b><i>→</i><b>Memory</b><i>→</i><b>Policy</b><i>→</i><b>Action</b>
+</div>
+<span class="authority-tag">WORKING ARCHITECTURE</span>
+</div>
+<div class="premise-join reverse" aria-hidden="true"><span></span></div>
+<div class="premise-source" data-diagram-role="source">
+<span class="diagram-kicker">SOURCE / DEVICE</span>
+<strong>Screen → perception</strong>
+<em>planned path</em>
+</div>
+<div class="premise-training" data-diagram-role="training">
+<span>TRAINING ONLY</span>
+<p>Learning may use information unavailable to the deployed actor. Any such branch must stay visibly separate from actor input.</p>
+</div>
 </div>
 </div>
 </section>
-<section aria-labelledby="observatory-title" class="observatory section-shell ruled-top" id="system">
+
+<section aria-labelledby="stack-title" class="stack section-shell ruled-top" id="stack">
 <div class="shell">
 <div class="section-heading grid-12">
-<p class="section-index">SYSTEM / OBSERVATORY</p>
+<p class="section-index">STACK / WORKING ARCHITECTURE</p>
 <div class="heading-cluster">
-<h2 class="section-title" id="observatory-title">The game system is the artifact.</h2>
-<p class="section-deck">Real Kodo captures should become the main visual evidence here. Until then, the page uses clearly labeled conceptual diagrams for arena geometry, game dynamics, observation, and the future learning loop.</p>
+<h2 class="section-title" id="stack-title">From source to action.</h2>
+<p class="section-deck">This is the public contract, not a frozen implementation spec. Components show their role and authority state; exact algorithm, model-family, dimension, and library choices are deliberately withheld until locked.</p>
 </div>
 </div>
-<figure class="artifact artifact-large" data-animate="figure">
-<div class="figure-topline"><span>FIG. 002</span><span>ENVIRONMENT TOPOLOGY / CONCEPTUAL</span></div>
-<div aria-label="Conceptual observation plate" class="artifact-canvas arena-plate">
-<div aria-hidden="true" class="arena-grid"></div>
-<div aria-hidden="true" class="channel-strip">
-<span><b>CH00</b> geometry</span><span><b>CH01</b> agents</span><span><b>CH02</b> projectiles</span>
+<div class="stack-flow" aria-label="Kodo working algorithm stack">
+<article class="stack-node" data-diagram-role="source">
+<span>01 / SOURCE</span>
+<h3>Game or device state</h3>
+<p>Simulation today; visual device path as the deployment direction.</p>
+<em>mixed maturity</em>
+</article>
+<div class="flow-arrow" aria-hidden="true">→</div>
+<article class="stack-node" data-diagram-role="representation">
+<span>02 / OBSERVATION</span>
+<h3>Actor input contract</h3>
+<p>A representation the policy can consume across execution regimes.</p>
+<em>working design</em>
+</article>
+<div class="flow-arrow" aria-hidden="true">→</div>
+<article class="stack-node" data-diagram-role="representation">
+<span>03 / REPRESENT</span>
+<h3>Encoder + memory</h3>
+<p>Temporal and entity representation are still under architectural review.</p>
+<em>under review</em>
+</article>
+<div class="flow-arrow" aria-hidden="true">→</div>
+<article class="stack-node" data-diagram-role="policy">
+<span>04 / POLICY</span>
+<h3>Multi-agent policy</h3>
+<p>The policy family is a current direction rather than a locked public claim.</p>
+<em>under review</em>
+</article>
+<div class="flow-arrow" aria-hidden="true">→</div>
+<article class="stack-node" data-diagram-role="policy">
+<span>05 / ACTION</span>
+<h3>Control contract</h3>
+<p>Actions return to the simulated game or, later, the device-control path.</p>
+<em>working design</em>
+</article>
 </div>
-<div aria-hidden="true" class="plate-wall wall-1"></div>
-<div aria-hidden="true" class="plate-wall wall-2"></div>
-<div aria-hidden="true" class="plate-wall wall-3"></div>
-<svg aria-hidden="true" class="plate-vectors" preserveaspectratio="none" viewbox="0 0 1000 500">
-<polygon class="vision-field" points="315,330 720,210 690,420"></polygon>
-<circle class="range-ring" cx="315" cy="330" r="108"></circle>
-<line class="los-line" x1="315" x2="720" y1="330" y2="250"></line>
-<path class="plate-path" d="M180 410 C260 390 255 345 315 330 S430 276 520 300 S640 285 720 250"></path>
-<g class="plate-samples">
-<circle cx="180" cy="410" r="4"></circle><circle cx="260" cy="372" r="3"></circle><circle cx="315" cy="330" r="4"></circle><circle cx="415" cy="292" r="3"></circle><circle cx="520" cy="300" r="3"></circle><circle cx="625" cy="284" r="3"></circle><circle cx="720" cy="250" r="4"></circle>
-</g>
-</svg>
-<div aria-hidden="true" class="plate-agent"><span></span></div>
-<div aria-hidden="true" class="plate-target"></div>
-<div class="plate-callout callout-agent"><i></i><span>controlled agent</span></div>
-<div class="plate-callout callout-target"><i></i><span>tracked object</span></div>
-<div aria-hidden="true" class="tick-rail"><span>t−3</span><span>t−2</span><span>t−1</span><span class="current">t</span></div>
-<div class="plate-stamp">SCHEMATIC / NOT MEASURED OUTPUT</div>
-</div>
-<figcaption class="figure-caption"><span>Environment topology and state channels</span><span>Conceptual placeholder</span></figcaption>
-</figure>
-<div class="artifact-pair">
-<figure class="artifact" data-animate="figure">
-<div class="figure-topline"><span>FIG. 003</span><span>GAME DYNAMICS / CONCEPTUAL</span></div>
-<div aria-label="Conceptual projectile model" class="artifact-canvas projectile-canvas">
-<svg aria-hidden="true" preserveaspectratio="none" viewbox="0 0 600 360">
-<path class="curve-main" d="M54 300 Q 236 52 548 208"></path>
-<path class="curve-base" d="M54 300 L548 300"></path>
-<line class="collision-plane" x1="390" x2="390" y1="55" y2="300"></line>
-<g class="ballistic-samples">
-<circle cx="54" cy="300" r="5"></circle><circle cx="133" cy="203" r="3"></circle><circle cx="222" cy="139" r="3"></circle><circle cx="319" cy="118" r="3"></circle><circle cx="410" cy="139" r="3"></circle><circle cx="490" cy="178" r="3"></circle><circle cx="548" cy="208" r="5"></circle>
-</g>
-</svg>
-<span class="tiny-label start">launch</span><span class="tiny-label peak">sampled state</span><span class="tiny-label collision">collision plane</span><span class="tiny-label end">impact</span>
-</div>
-<figcaption class="figure-caption"><span>Trajectory / collision geometry</span><span>Conceptual</span></figcaption>
-</figure>
-<figure class="artifact" data-animate="figure">
-<div class="figure-topline"><span>FIG. 004</span><span>LEARNING LOOP / CONCEPTUAL</span></div>
-<div aria-label="Conceptual policy state loop" class="artifact-canvas policy-canvas">
-<div aria-hidden="true" class="policy-chain">
-<div><span>00</span><b>OBS</b><i>visual state</i></div>
-<div><span>01</span><b>EST</b><i>latent state</i></div>
-<div><span>02</span><b>ACT</b><i>control</i></div>
-<div><span>03</span><b>EVAL</b><i>transition</i></div>
-</div>
-<div aria-hidden="true" class="policy-return"><span>next observation</span><i></i></div>
-</div>
-<figcaption class="figure-caption"><span>Observe → estimate → act → evaluate</span><span>Conceptual</span></figcaption>
-</figure>
+<div class="stack-lanes">
+<div class="stack-lane" data-diagram-role="training"><strong>TRAINING PATH</strong><span>optimisation / privileged signals may branch here</span></div>
+<div class="stack-lane deploy" data-diagram-role="deploy"><strong>DEVICE PATH</strong><span>screen perception must supply only what the actor can observe</span></div>
 </div>
 </div>
 </section>
-<section aria-labelledby="ledger-title" class="ledger section-shell ruled-top">
+
+<section aria-labelledby="roadmap-title" class="roadmap section-shell ruled-top" id="roadmap">
 <div class="shell">
 <div class="section-heading grid-12">
-<p class="section-index">DEVELOPMENT / LEDGER</p>
+<p class="section-index">PLAN / WORKING ROADMAP</p>
 <div class="heading-cluster">
-<h2 class="section-title" id="ledger-title">Current Kodo build</h2>
-<p class="section-deck">Status reconciled from the latest NPLUS reply on 2026.08.22. Broad confirmed states are shown; older granular assumptions are intentionally dropped.</p>
+<h2 class="section-title" id="roadmap-title">Human video → imitation → multi-agent → device.</h2>
+<p class="section-deck">The latest simplified planning revision is used here as a roadmap, not as proof that every stage or stack choice is already implemented.</p>
 </div>
 </div>
-<div class="ledger-group">
-<h3>Environment</h3>
-<div>
-<div class="ledger-row"><span>Core game logic</span><strong>Implemented</strong></div>
-<div class="ledger-row"><span>User interface</span><strong>Implemented</strong></div>
-<div class="ledger-row"><span>Gas system</span><strong data-status="active">In development</strong></div>
+<div class="roadmap-flow" aria-label="Kodo working training roadmap">
+<article class="roadmap-gate" data-diagram-role="risk">
+<span>GATE</span>
+<h3>Prerequisites first</h3>
+<p>Training results do not count until the current environment and observation blockers are closed.</p>
+<em>details held until confirmed</em>
+</article>
+<div class="roadmap-arrow" aria-hidden="true">→</div>
+<article class="roadmap-stage" data-diagram-role="source"><span>01</span><h3>Human play video</h3><p>Collect representative gameplay from the real game.</p><em>working route</em></article>
+<div class="roadmap-arrow" aria-hidden="true">→</div>
+<article class="roadmap-stage" data-diagram-role="source"><span>02</span><h3>CV reverse-engineering</h3><p>Infer observation and action labels from recorded play.</p><em>working route</em></article>
+<div class="roadmap-arrow" aria-hidden="true">→</div>
+<article class="roadmap-stage" data-diagram-role="representation"><span>03</span><h3>Behaviour cloning</h3>
+<p>Use human data to initialise a policy before reinforcement learning.</p><em>planned</em></article>
+<div class="roadmap-arrow" aria-hidden="true">→</div>
+<article class="roadmap-stage" data-diagram-role="policy"><span>04</span><h3>Multi-agent self-play</h3><p>Continue learning against a changing population of agents.</p><em>planned</em></article>
+<div class="roadmap-arrow" aria-hidden="true">→</div>
+<article class="roadmap-stage" data-diagram-role="source"><span>05</span><h3>Device test</h3><p>Evaluate perception, delay, aim control, and the sim-to-device gap.</p><em>test direction</em></article>
+</div>
+<div class="roadmap-notes">
+<p><strong>PUBLIC SIMPLIFICATION</strong> Detailed blocker IDs, exact model names, action dimensions, observation dimensions, and hyperparameters are intentionally not reproduced here.</p>
+<p><strong>RETRAINING RISK</strong> Device-side changes may invalidate earlier checkpoints; that dependency stays visible in the roadmap rather than being hidden as implementation detail.</p>
 </div>
 </div>
-<div class="ledger-group">
-<h3>Learning</h3>
-<div>
-<div class="ledger-row"><span>RL algorithm</span><strong>Not locked</strong></div>
-<div class="ledger-row"><span>Training stack</span><strong>Open decision</strong></div>
+</section>
+
+<section aria-labelledby="status-title" class="status-section section-shell ruled-top" id="status">
+<div class="shell">
+<div class="section-heading grid-12">
+<p class="section-index">STATUS/ TRUTH LAYER</p>
+<div class="heading-cluster">
+<h2 class="section-title" id="status-title">Confirmed build vs working plan.</h2>
+<p class="section-deck">Kodo now separates what has been reported implemented from architecture that is likely but not yet locked.</p>
 </div>
 </div>
-<div class="ledger-group">
-<h3>Perception</h3>
-<div>
-<div class="ledger-row"><span>Computer vision approach</span><strong>Not locked</strong></div>
-<div class="ledger-row"><span>Sim-to-real architecture</span><strong>Not claimed</strong></div>
+<div class="status-matrix">
+<section class="status-column">
+<p class="status-column-label">CONFIRMED BUILD</p>
+<div class="status-line"><span>Core game logic</span><strong>Implemented</strong></div>
+<div class="status-line"><span>User interface</span><strong>Implemented</strong></div>
+<div class="status-line"><span>Gas system</span><strong data-status="active">In development</strong></div>
+</section>
+<section class="status-column">
+<p class="status-column-label">WORKING DIRECTION</p>
+<div class="status-line"><span>Architecture shown above</span><strong>Not locked</strong></div>
+<div class="status-line"><span>Model / library choices</span><strong>Under review</strong></div>
+<div class="status-line"><span>Roadmap stages</span><strong>Planning sequence</strong></div>
+</section>
+<section class="status-column">
+<p class="status-column-label">PUBLICATION POLICY</p>
+<div class="status-line"><span>Exact dimensions /hyperparameters</span><strong>Withheld</strong></div>
+<div class="status-line"><span>Detailed blocker list</span><strong>Withheld</strong></div>
+<div class="status-line"><span>Public team roster</span><strong>Omitted</strong></div>
+</section>
 </div>
-</div>
-<p class="placeholder-note">STATUS BASIS / NPLUS teammate reply · 2026.08.22 · real screenshots / repository still pending evidence intake.</p>
+<p class="placeholder-note">AUTHORITY BASIS / NPLUS teammate reply + revised planning diagram µ 2026.08.22 µ deleted chat content is not used as evidence.</p>
 </div>
 </section>
 </main>
@@ -252,7 +248,7 @@
 <div class="shell grid-12 footer-grid">
 <div class="footer-title">Kodo <small>/ NPLUS</small></div>
 <p>Game-system engineering + agent learning.</p>
-<div class="footer-links"><span>Public GitHub / real media pending evidence intake</span></div>
+<div class="footer-links"><span>Working architecture is labeled by authority state.</span></div>
 <p class="copyright">© 2026</p>
 <p class="affiliation-note">Independent NPLUS project. Brawl Stars identifies the project target; no affiliation with Supercell is implied.</p>
 </div>
