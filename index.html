@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html class="no-js" data-brand="field-signal" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Kodo by NPLUS — building a controllable Brawl Stars environment and training agents inside it." name="description"/>
+<meta content="#0f0f0e" name="theme-color"/>
+<title>Kodo — NPLUS</title>
+<link href="./styles.css" rel="stylesheet"/>
+<link href="./tokens.css" rel="stylesheet"/>
+<script>document.documentElement.classList.replace('no-js','js');</script>
+<link href="./favicon.svg" rel="icon" type="image/svg+xml"/></head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header" data-header="">
+<div class="shell header-grid">
+<a aria-label="Kodo home" class="wordmark" href="#top"><span>Kodo</span><small>NPLUS</small></a>
+<nav aria-label="Primary navigation" class="desktop-nav">
+<a href="#build">Build</a>
+<a href="#learning">Learning</a>
+<a href="#system">System</a>
+</nav>
+<button aria-controls="mobile-nav" aria-expanded="false" class="menu-button" data-menu-button="" type="button">
+<span>Menu</span><span aria-hidden="true" class="menu-mark">+</span>
+</button>
+</div>
+<nav aria-label="Mobile navigation" class="mobile-nav shell" data-mobile-nav="" hidden="" id="mobile-nav">
+<a href="#build">Build</a>
+<a href="#learning">Learning</a>
+<a href="#system">System</a>
+</nav>
+</header>
+<main id="main">
+<section aria-labelledby="hero-title" class="hero section-shell" id="top"><svg aria-hidden="true" class="hero-constellation" preserveaspectratio="none" viewbox="0 0 1440 760">
+<path class="constellation-orbit orbit-a" d="M760 82 C980 16 1268 82 1380 244"></path>
+<path class="constellation-orbit orbit-b" d="M820 238 C1015 150 1222 190 1360 388"></path>
+<path class="constellation-branch" d="M930 118 L1030 206 L1156 152 L1274 260 L1350 222"></path>
+<path class="constellation-branch faint" d="M1018 324 L1120 274 L1214 346 L1326 306"></path>
+<g class="constellation-stars">
+<circle cx="930" cy="118" r="2.4"></circle><circle cx="1030" cy="206" r="1.7"></circle><circle cx="1156" cy="152" r="2.2"></circle>
+<circle cx="1274" cy="260" r="1.8"></circle><circle cx="1350" cy="222" r="2.6"></circle><circle cx="1018" cy="324" r="1.5"></circle>
+<circle cx="1120" cy="274" r="2.0"></circle><circle cx="1214" cy="346" r="1.6"></circle><circle cx="1326" cy="306" r="2.2"></circle>
+</g>
+</svg>
+<div class="shell grid-12 hero-grid">
+<div class="hero-copy">
+<p class="eyebrow reveal brand-preserve">NPLUS / Kodo</p>
+<h1 class="display-xl line-reveal" id="hero-title"><span>Building agents</span><span>that learn to play.</span></h1>
+<p class="hero-lead reveal delay-2">Kodo rebuilds Brawl Stars as a controllable game environment first, then uses that system as the foundation for reinforcement learning.</p>
+</div>
+<dl class="hero-meta reveal delay-3">
+<div><dt>Team</dt><dd>NPLUS</dd></div>
+<div><dt>Project</dt><dd>Kodo</dd></div>
+<div><dt>Target</dt><dd>Brawl Stars / Colt</dd></div>
+<div><dt>Build state</dt><dd><span class="status-dot"></span>Game logic + UI implemented</dd></div>
+</dl>
+<figure aria-labelledby="fig-001-caption" class="hero-figure reveal-figure">
+<div class="figure-topline"><span>FIG. 001</span><span class="brand-preserve">Kodo ENVIRONMENT / MEDIA SLOT</span></div>
+<div class="hero-media-slot" data-media-slot="hero"><img alt="" class="hero-real-media" data-real-media="hero" hidden=""/><div aria-label="Conceptual game environment schematic, not live project output" class="simulation-stage figure-visual" data-conceptual-fallback="hero" data-sim-visual="">
+<div aria-hidden="true" class="coord-ruler coord-ruler-x"><span>00</span><span>04</span><span>08</span><span>12</span><span>16</span></div>
+<div aria-hidden="true" class="coord-ruler coord-ruler-y"><span>A</span><span>B</span><span>C</span><span>D</span></div>
+<div aria-hidden="true" class="sim-grid-lines"></div>
+<div aria-hidden="true" class="obstacle obstacle-a"></div>
+<div aria-hidden="true" class="obstacle obstacle-b"></div>
+<div aria-hidden="true" class="obstacle obstacle-c"></div>
+<div aria-hidden="true" class="observation-window"><span>OBS</span></div>
+<svg aria-hidden="true" class="trajectory" preserveaspectratio="none" viewbox="0 0 1000 520">
+<path class="trajectory-path" d="M110,394 C280,280 340,360 486,252 S730,150 900,116"></path>
+<path class="projectile-path" d="M520,232 C650,164 752,164 866,202"></path>
+<g class="sample-points">
+<circle cx="110" cy="394" r="4"></circle><circle cx="232" cy="320" r="3"></circle><circle cx="355" cy="319" r="3"></circle><circle cx="486" cy="252" r="3"></circle><circle cx="628" cy="190" r="3"></circle><circle cx="770" cy="150" r="3"></circle><circle cx="900" cy="116" r="4"></circle>
+</g>
+<line class="aim-vector" x1="110" x2="900" y1="394" y2="116"></line>
+</svg>
+<div aria-hidden="true" class="agent-marker"><span></span><i></i></div>
+<div aria-hidden="true" class="target-marker"><span></span></div>
+<div aria-hidden="true" class="projectile p1"></div>
+<div aria-hidden="true" class="projectile p2"></div>
+<div class="sim-hud hud-a">STATE / FRAME</div>
+<div class="sim-hud hud-b">OBS / SCHEMATIC</div>
+<div class="sim-hud hud-c">PATH / SAMPLED</div>
+</div></div>
+<figcaption class="figure-caption" id="fig-001-caption"><span data-media-caption="hero">Conceptual environment schematic while real Kodo media is pending.</span><span data-media-state="hero">CONCEPTUAL FALLBACK</span></figcaption>
+</figure>
+</div>
+</section>
+<section aria-labelledby="project-title" class="project section-shell ruled-top" id="build">
+<div class="shell grid-12 project-grid">
+<p class="section-index brand-preserve">PROJECT / Kodo</p>
+<div class="project-copy">
+<h2 class="display-l" id="project-title">Kodo</h2>
+<p class="lead">Kodo is an NPLUS project focused on rebuilding Brawl Stars as a controllable game system and training agents inside it. Game logic and UI come first; RL and computer-vision choices remain open until they are actually decided.</p>
+</div>
+<dl class="meta-stack">
+<div><dt>Target game</dt><dd>Brawl Stars</dd></div>
+<div><dt>Target brawler</dt><dd>Colt</dd></div>
+<div><dt>Game logic</dt><dd>Implemented</dd></div>
+<div><dt>UI</dt><dd>Implemented</dd></div>
+<div><dt>Gas system</dt><dd>In development</dd></div>
+</dl>
+</div>
+<div aria-label="Kodo project pipeline" class="shell scope-rail">
+<div><span>01</span><strong>BUILD</strong><em>core implemented</em></div>
+<div><span>02</span><strong>EXTEND</strong><em>gas in progress</em></div>
+<div><span>03</span><strong>TRAIN</strong><em>algorithm open</em></div>
+<div><span>04</span><strong>PERCEIVE</strong><em>CV open</em></div>
+</div>
+</section>
+<section aria-labelledby="research-title" class="research section-shell ruled-top" id="learning">
+<div class="shell">
+<div class="section-heading grid-12">
+<p class="section-index">PROJECT LAYERS / 04</p>
+<div class="heading-cluster">
+<h2 class="section-title" id="research-title">Build → learn</h2>
+<p class="section-deck">Kodo is closer to game-system engineering with an agent-learning layer than to a generic “AI research” landing page.</p>
+</div>
+</div>
+<div class="research-index">
+<article class="research-row">
+<span class="research-number">01</span>
+<h3>Game Environment</h3>
+<p>Reconstructing the playable world as a controllable system that can be reset, instrumented, and used repeatedly for agent training.</p>
+<span aria-hidden="true" class="row-arrow">↗</span>
+</article>
+<article class="research-row">
+<span class="research-number">02</span>
+<h3>Game Logic + UI</h3>
+<p>Core game logic and the interface layer are reported implemented; the gas system is the current environment extension.</p>
+<span aria-hidden="true" class="row-arrow">↗</span>
+</article>
+<article class="research-row">
+<span class="research-number">03</span>
+<h3>Reinforcement Learning</h3>
+<p>The learning layer comes after the game system. The RL algorithm is intentionally shown as undecided rather than prematurely branded around one stack.</p>
+<span aria-hidden="true" class="row-arrow">↗</span>
+</article>
+<article class="research-row">
+<span class="research-number">04</span>
+<h3>Computer Vision</h3>
+<p>Computer vision remains an open design decision. No specific deployment or sim-to-real architecture is claimed yet.</p>
+<span aria-hidden="true" class="row-arrow">↗</span>
+</article>
+</div>
+</div>
+</section>
+<section aria-labelledby="observatory-title" class="observatory section-shell ruled-top" id="system">
+<div class="shell">
+<div class="section-heading grid-12">
+<p class="section-index">SYSTEM / OBSERVATORY</p>
+<div class="heading-cluster">
+<h2 class="section-title" id="observatory-title">The game system is the artifact.</h2>
+<p class="section-deck">Real Kodo captures should become the main visual evidence here. Until then, the page uses clearly labeled conceptual diagrams for arena geometry, game dynamics, observation, and the future learning loop.</p>
+</div>
+</div>
+<figure class="artifact artifact-large" data-animate="figure">
+<div class="figure-topline"><span>FIG. 002</span><span>ENVIRONMENT TOPOLOGY / CONCEPTUAL</span></div>
+<div aria-label="Conceptual observation plate" class="artifact-canvas arena-plate">
+<div aria-hidden="true" class="arena-grid"></div>
+<div aria-hidden="true" class="channel-strip">
+<span><b>CH00</b> geometry</span><span><b>CH01</b> agents</span><span><b>CH02</b> projectiles</span>
+</div>
+<div aria-hidden="true" class="plate-wall wall-1"></div>
+<div aria-hidden="true" class="plate-wall wall-2"></div>
+<div aria-hidden="true" class="plate-wall wall-3"></div>
+<svg aria-hidden="true" class="plate-vectors" preserveaspectratio="none" viewbox="0 0 1000 500">
+<polygon class="vision-field" points="315,330 720,210 690,420"></polygon>
+<circle class="range-ring" cx="315" cy="330" r="108"></circle>
+<line class="los-line" x1="315" x2="720" y1="330" y2="250"></line>
+<path class="plate-path" d="M180 410 C260 390 255 345 315 330 S430 276 520 300 S640 285 720 250"></path>
+<g class="plate-samples">
+<circle cx="180" cy="410" r="4"></circle><circle cx="260" cy="372" r="3"></circle><circle cx="315" cy="330" r="4"></circle><circle cx="415" cy="292" r="3"></circle><circle cx="520" cy="300" r="3"></circle><circle cx="625" cy="284" r="3"></circle><circle cx="720" cy="250" r="4"></circle>
+</g>
+</svg>
+<div aria-hidden="true" class="plate-agent"><span></span></div>
+<div aria-hidden="true" class="plate-target"></div>
+<div class="plate-callout callout-agent"><i></i><span>controlled agent</span></div>
+<div class="plate-callout callout-target"><i></i><span>tracked object</span></div>
+<div aria-hidden="true" class="tick-rail"><span>t−3</span><span>t−2</span><span>t−1</span><span class="current">t</span></div>
+<div class="plate-stamp">SCHEMATIC / NOT MEASURED OUTPUT</div>
+</div>
+<figcaption class="figure-caption"><span>Environment topology and state channels</span><span>Conceptual placeholder</span></figcaption>
+</figure>
+<div class="artifact-pair">
+<figure class="artifact" data-animate="figure">
+<div class="figure-topline"><span>FIG. 003</span><span>GAME DYNAMICS / CONCEPTUAL</span></div>
+<div aria-label="Conceptual projectile model" class="artifact-canvas projectile-canvas">
+<svg aria-hidden="true" preserveaspectratio="none" viewbox="0 0 600 360">
+<path class="curve-main" d="M54 300 Q 236 52 548 208"></path>
+<path class="curve-base" d="M54 300 L548 300"></path>
+<line class="collision-plane" x1="390" x2="390" y1="55" y2="300"></line>
+<g class="ballistic-samples">
+<circle cx="54" cy="300" r="5"></circle><circle cx="133" cy="203" r="3"></circle><circle cx="222" cy="139" r="3"></circle><circle cx="319" cy="118" r="3"></circle><circle cx="410" cy="139" r="3"></circle><circle cx="490" cy="178" r="3"></circle><circle cx="548" cy="208" r="5"></circle>
+</g>
+</svg>
+<span class="tiny-label start">launch</span><span class="tiny-label peak">sampled state</span><span class="tiny-label collision">collision plane</span><span class="tiny-label end">impact</span>
+</div>
+<figcaption class="figure-caption"><span>Trajectory / collision geometry</span><span>Conceptual</span></figcaption>
+</figure>
+<figure class="artifact" data-animate="figure">
+<div class="figure-topline"><span>FIG. 004</span><span>LEARNING LOOP / CONCEPTUAL</span></div>
+<div aria-label="Conceptual policy state loop" class="artifact-canvas policy-canvas">
+<div aria-hidden="true" class="policy-chain">
+<div><span>00</span><b>OBS</b><i>visual state</i></div>
+<div><span>01</span><b>EST</b><i>latent state</i></div>
+<div><span>02</span><b>ACT</b><i>control</i></div>
+<div><span>03</span><b>EVAL</b><i>transition</i></div>
+</div>
+<div aria-hidden="true" class="policy-return"><span>next observation</span><i></i></div>
+</div>
+<figcaption class="figure-caption"><span>Observe → estimate → act → evaluate</span><span>Conceptual</span></figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section aria-labelledby="ledger-title" class="ledger section-shell ruled-top">
+<div class="shell">
+<div class="section-heading grid-12">
+<p class="section-index">DEVELOPMENT / LEDGER</p>
+<div class="heading-cluster">
+<h2 class="section-title" id="ledger-title">Current Kodo build</h2>
+<p class="section-deck">Status reconciled from the latest NPLUS reply on 2026.08.22. Broad confirmed states are shown; older granular assumptions are intentionally dropped.</p>
+</div>
+</div>
+<div class="ledger-group">
+<h3>Environment</h3>
+<div>
+<div class="ledger-row"><span>Core game logic</span><strong>Implemented</strong></div>
+<div class="ledger-row"><span>User interface</span><strong>Implemented</strong></div>
+<div class="ledger-row"><span>Gas system</span><strong data-status="active">In development</strong></div>
+</div>
+</div>
+<div class="ledger-group">
+<h3>Learning</h3>
+<div>
+<div class="ledger-row"><span>RL algorithm</span><strong>Not locked</strong></div>
+<div class="ledger-row"><span>Training stack</span><strong>Open decision</strong></div>
+</div>
+</div>
+<div class="ledger-group">
+<h3>Perception</h3>
+<div>
+<div class="ledger-row"><span>Computer vision approach</span><strong>Not locked</strong></div>
+<div class="ledger-row"><span>Sim-to-real architecture</span><strong>Not claimed</strong></div>
+</div>
+</div>
+<p class="placeholder-note">STATUS BASIS / NPLUS teammate reply · 2026.08.22 · real screenshots / repository still pending evidence intake.</p>
+</div>
+</section>
+</main>
+<footer class="site-footer ruled-top">
+<div class="shell grid-12 footer-grid">
+<div class="footer-title">Kodo <small>/ NPLUS</small></div>
+<p>Game-system engineering + agent learning.</p>
+<div class="footer-links"><span>Public GitHub / real media pending evidence intake</span></div>
+<p class="copyright">© 2026</p>
+<p class="affiliation-note">Independent NPLUS project. Brawl Stars identifies the project target; no affiliation with Supercell is implied.</p>
+</div>
+</footer>
+<script src="./media-manifest.js"></script><script src="./script.js"></script>
+</body>
+</html>

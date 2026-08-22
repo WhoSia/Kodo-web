@@ -1,0 +1,70 @@
+  .agent-marker { left: 11%; top: 70%; }.target-marker { right: 9%; top: 20%; }
+
+  .section-index, .section-heading .section-index { grid-column: 1 / -1; margin-bottom: 18px; }
+  .project-copy, .heading-cluster, .meta-stack { grid-column: 1 / -1; }
+  .project-copy { margin-bottom: 40px; }.display-l { font-size: 3rem; }.lead { margin-top: 25px; font-size: 18px; }
+  .scope-rail { grid-template-columns: repeat(2, 1fr); margin-top: 64px; }
+  .scope-rail > div { border-bottom: 1px solid var(--rule); }
+  .scope-rail > div:nth-child(2) { border-right: 0; }.scope-rail > div:nth-child(3), .scope-rail > div:nth-child(4) { border-bottom: 0; }
+  .scope-rail > div:nth-child(3) { padding-left: 0; }
+  .section-heading { margin-bottom: 40px; }.section-title { font-size: 2.45rem; }.section-deck { font-size: 14px; }
+  .research-row { grid-template-columns: 42px 1fr; gap: 10px 14px; padding: 23px 0 27px; }
+  .research-row h3 { font-size: 24px; }.research-row p { grid-column: 2; }.row-arrow { display: none; }
+
+  .arena-plate { aspect-ratio: 1 / 1.2; }
+  .channel-strip { position: absolute; left: 0; right: 0; top: auto; bottom: 0; width: auto; height: 29%; border-right: 0; border-top: 1px solid var(--rule); grid-template-columns: 1fr; align-content: center; padding: 15px; }
+  .channel-strip span { grid-template-columns: 38px 1fr; }
+  .plate-vectors { left: 0; top: 0; width: 100%; height: 71%; }
+  .plate-stamp { left: 12px; top: 12px; }
+  .wall-1 { left: 17%; top: 17%; width: 20%; }.wall-2 { left: 48%; top: 43%; width: 27%; }.wall-3 { right: 8%; top: 15%; width: 12%; height: 25%; }
+  .plate-agent { left: 29%; top: 48%; }.plate-target { left: auto; right: 22%; top: 33%; }
+  .plate-callout, .tick-rail { display: none; }
+  .artifact-pair { grid-template-columns: 1fr; margin-top: 52px; gap: 52px; }
+  .policy-chain { grid-template-columns: repeat(2, 1fr); }
+  .policy-chain > div:nth-child(2) { border-right: 0; }.policy-chain > div:nth-child(-n+2) { border-bottom: 1px solid var(--rule); }
+  .ledger-group { grid-template-columns: 1fr; gap: 16px; padding-bottom: 40px; }
+  .update-row { grid-template-columns: 1fr 1fr; gap: 4px 12px; padding: 18px 0; }
+  .update-row strong { grid-column: 1 / -1; grid-row: 2; margin-top: 6px; }.update-row i { display: none; }
+  .team-row { grid-template-columns: 1fr; gap: 2px; padding: 18px 0; }.team-row em { justify-self: start; margin-top: 7px; }
+  .footer-title, .footer-grid > p:not(.copyright):not(.affiliation-note), .footer-links, .copyright, .affiliation-note { grid-column: 1 / -1; justify-self: start; }
+  .footer-grid { row-gap: 26px; }.footer-title { font-size: 3.2rem; }.copyright { margin-top: 16px; }.affiliation-note { grid-row: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .reveal, .line-reveal span, .reveal-figure { opacity: 1; transform: none; }
+  .js [data-animate="figure"] .plate-path, .js [data-animate="figure"] .curve-main { stroke-dashoffset: 0; }
+  .js [data-animate="figure"] .plate-samples circle, .js [data-animate="figure"] .ballistic-samples circle { opacity: .82; }
+}
+
+a:focus-visible, button:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 5px;
+}
+
+/* v0.7 real-asset replacement simulator */
+.fixture-warning{margin-top:88px;padding:12px 0 14px;border-top:1px solid var(--accent);border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;gap:24px;font:12px/1.45 var(--font-mono);text-transform:uppercase;letter-spacing:.04em}.fixture-warning strong{color:var(--accent)}.fixture-warning span{color:var(--ink-muted);text-align:right}.fixture-media{position:relative;overflow:hidden;background:var(--surface);border:1px solid var(--rule-soft);min-height:360px}.fixture-media img{display:block;width:100%;height:100%;object-fit:cover;object-position:58% 48%}.fixture-plot img{object-position:center}.fixture-frame .figure-topline span:last-child{color:var(--accent)}
+@media(max-width:639px){.fixture-warning{margin-top:72px;display:block}.fixture-warning span{display:block;text-align:left;margin-top:6px}.fixture-media{min-height:250px}.fixture-media img{aspect-ratio:4/3;object-fit:cover}}
+
+/* v0.10 — Kodo production polish */
+.hero { position: relative; overflow: clip; isolation: isolate; }
+.hero .shell { position: relative; z-index: 2; }
+.hero-constellation { position: absolute; inset: 0 0 auto 0; width: 100%; height: min(760px, 88vh); z-index: 1; pointer-events: none; opacity: .62; }
+.constellation-orbit,.constellation-branch { fill: none; stroke: color-mix(in srgb, var(--ink) 14%, transparent); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.constellation-orbit { stroke-dasharray: 3 8; }
+.constellation-branch.faint { opacity: .58; }
+.constellation-stars circle { fill: color-mix(in srgb, var(--ink) 88%, transparent); transform-box: fill-box; transform-origin: center; animation: star-pulse 4.8s ease-in-out infinite; }
+.constellation-stars circle:nth-child(2n) { animation-delay: -1.7s; }
+.constellation-stars circle:nth-child(3n) { animation-delay: -3.1s; }
+.constellation-stars circle:nth-child(5n) { animation-duration: 6.2s; }
+@keyframes star-pulse { 0%,100%{opacity:.24;transform:scale(.72)} 48%{opacity:.9;transform:scale(1.18)} 58%{opacity:.55;transform:scale(.94)} }
+.hero-media-slot { position: relative; }
+.hero-real-media { display: block; width: 100%; aspect-ratio: 1000/520; object-fit: cover; object-position: center; border: 1px solid var(--rule-soft); background: var(--surface); }
+.hero-real-media[hidden] { display: none !important; }
+.hero-media-slot.is-real .simulation-stage { display: none; }
+.hero-media-slot.is-real::after { content: 'REAL Kodo BUILD'; position:absolute; left:12px; bottom:12px; font: 10px/1.2 var(--font-mono); letter-spacing:.06em; text-transform:uppercase; color:var(--ink); background:color-mix(in srgb,var(--canvas) 82%,transparent); border:1px solid color-mix(in srgb,var(--ink) 14%,transparent); padding:6px 7px; }
+.figure-caption [data-media-state] { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: .05em; color: var(--ink-faint); }
+@media (max-width: 899px){ .hero-constellation{left:16%;width:110%;opacity:.46} }
+@media (max-width: 639px){ .hero-constellation{left:28%;top:6px;width:130%;height:520px;opacity:.34}.hero-real-media{aspect-ratio:1/1.04}.hero-copy{position:relative}.display-xl{max-width:10ch} }
+@media (prefers-reduced-motion: reduce){ .constellation-stars circle{animation:none;opacity:.52;transform:none} }

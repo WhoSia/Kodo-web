@@ -1,0 +1,22 @@
+/* Prototype 0.6 — brand input tokens. Semantic roles are mapped in styles.css. */
+:root, html[data-brand="field-signal"] {
+  --brand-canvas:#0f0f0e; --brand-surface:#141413; --brand-surface-2:#191918; --brand-visual-canvas:#0a0a09;
+  --brand-ink:#f0efe9; --brand-ink-muted:#9b9a93; --brand-ink-faint:#85847d; --brand-rule:#34332f; --brand-rule-soft:#252522;
+  --brand-accent:#b8ff3d; --brand-selection-ink:#11110f;
+  --brand-display:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+}
+html[data-brand="paper-trace"] {
+  --brand-canvas:#f1efe7; --brand-surface:#eae7dd; --brand-surface-2:#e4e0d5; --brand-visual-canvas:#e8e5db;
+  --brand-ink:#171613; --brand-ink-muted:#69665e; --brand-ink-faint:#6f6b63; --brand-rule:#c9c4b8; --brand-rule-soft:#ddd8cd;
+  --brand-accent:#b83b24; --brand-selection-ink:#fffaf1;
+  --brand-display:Georgia,"Times New Roman",serif;
+}
+html[data-brand="cobalt-index"] {
+  --brand-canvas:#0d1117; --brand-surface:#121821; --brand-surface-2:#171e28; --brand-visual-canvas:#090d12;
+  --brand-ink:#edf1f4; --brand-ink-muted:#98a2ad; --brand-ink-faint:#7f8995; --brand-rule:#303943; --brand-rule-soft:#202933;
+  --brand-accent:#5f86ff; --brand-selection-ink:#09101d;
+  --brand-display:Arial,"Helvetica Neue",Helvetica,sans-serif;
+}
+.wordmark { display:flex; align-items:baseline; gap:10px; }
+.wordmark small { font:7px/1 var(--font-mono); color:var(--ink-faint); letter-spacing:.08em; font-weight:500; }
+@media(max-width:639px){.wordmark small{display:none}}

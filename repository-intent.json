@@ -1,0 +1,10 @@
+{
+  "name": "Kodo-web",
+  "owner": "WhoSia",
+  "visibility": "private",
+  "defaultBranch": "main",
+  "collaborators": [
+    {"username": "KR-penguin", "permission": "write"}
+  ],
+  "deployment": {"provider": "Vercel", "buildCommand": null, "outputDirectory": null}
+}
