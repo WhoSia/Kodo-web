@@ -1,0 +1,202 @@
+/* v0.11.5 — spatial rhythm / pastel instrument palette / editorial timeline */
+
+:root{
+  --pastel-cyan:#9bdcf2;
+  --pastel-mint:#a9e5c8;
+  --pastel-lavender:#c7b8f5;
+  --pastel-peach:#f0b9a6;
+  --pastel-blue:#9fbdf6;
+}
+
+/* Brand marks: equal visual weight, never a billboard. */
+.nplus-mark,.kodo-crest-mini{width:25px!important;height:25px!important;object-fit:contain}
+.kodo-crest-mini{margin-left:2px}
+.footer-brand-pair{display:flex;align-items:center;gap:12px!important}
+.footer-brand-pair .footer-mark{width:30px!important;height:30px!important;object-fit:contain}
+.footer-brand-pair span{font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--muted)}
+
+/* Dark surface: outlines are intentionally visible. */
+html[data-theme='dark']{
+  --line-v115:rgba(220,231,245,.29);
+  --line-soft-v115:rgba(220,231,245,.15);
+  --panel-v115:rgba(255,255,255,.048);
+}
+html[data-theme='light']{
+  --line-v115:rgba(34,37,42,.22);
+  --line-soft-v115:rgba(34,37,42,.12);
+  --panel-v115:rgba(255,255,255,.36);
+}
+
+/* Hero instrument: same geometry, deeper instrument semantics. */
+.hero-instrument{width:min(100%,520px)}
+.instrument-stage{border-color:var(--line-v115)}
+.instrument-meta{color:color-mix(in srgb,var(--muted) 88%,var(--pastel-cyan) 12%)}
+.instrument-labels text{
+  fill:var(--muted);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.12em;
+}
+.instrument-ticks path{fill:none;stroke:var(--line-soft-v115);stroke-width:1}
+.instrument-nodes .node-cyan{fill:var(--pastel-cyan)}
+.instrument-nodes .node-mint{fill:var(--pastel-mint)}
+.instrument-nodes .node-lavender{fill:var(--pastel-lavender)}
+.instrument-nodes .node-peach{fill:var(--pastel-peach)}
+.instrument-nodes .node-cyan,.instrument-nodes .node-mint,.instrument-nodes .node-lavender,.instrument-nodes .node-peach{
+  filter:drop-shadow(0 0 9px currentColor)
+}
+.hero-lead strong{color:var(--ink);font-weight:650}
+
+/* Perception is an asymmetric 2x2 lab surface, not four equal dashboard cards. */
+.perception-lab{
+  display:grid;
+  grid-template-columns:repeat(12,minmax(0,1fr));
+  grid-auto-rows:minmax(220px,auto);
+  gap:16px;
+}
+.perception-panel{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  min-width:0;
+  padding:30px;
+  border:1px solid var(--line-v115);
+  background:var(--panel-v115);
+  overflow:hidden;
+}
+.perception-panel::before{
+  content:"";
+  position:absolute;
+  inset:0 auto 0 0;
+  width:3px;
+  background:var(--accent);
+}
+.perception-panel::after{
+  content:"";
+  position:absolute;
+  width:260px;height:260px;
+  right:-120px;top:-150px;
+  border-radius:50%;
+  background:radial-gradient(circle,color-mix(in srgb,var(--accent) 18%,transparent),transparent 67%);
+  pointer-events:none;
+}
+.perception-panel>span,.perception-panel>small{
+  position:relative;z-index:1;
+  color:color-mix(in srgb,var(--muted) 76%,var(--accent) 24%);
+  font-size:10px;font-weight:750;letter-spacing:.16em;
+}
+.perception-panel>div{position:relative;z-index:1;max-width:42rem}
+.perception-panel h3{margin:0 0 12px;font-size:clamp(27px,2.6vw,42px);line-height:1;letter-spacing:-.045em}
+.perception-panel p{margin:0;color:var(--muted);font-size:16px;line-height:1.6;max-width:42ch}
+.perception-primary{grid-column:span 7;grid-row:span 2;min-height:456px}
+.perception-primary h3{font-size:clamp(38px,4vw,66px);max-width:8ch}
+.perception-primary p{font-size:18px}
+.perception-secondary{grid-column:span 5}
+.perception-frontier{grid-column:span 5}
+.pastel-cyan{--accent:var(--pastel-cyan)}
+.pastel-mint{--accent:var(--pastel-mint)}
+.pastel-lavender{--accent:var(--pastel-lavender)}
+.pastel-peach{--accent:var(--pastel-peach)}
+
+/* System: keep the open schematic, add restrained source colors. */
+.open-system{border-color:var(--line-v115)!important}
+.open-system::before{background:linear-gradient(90deg,transparent,var(--line-soft-v115) 12%,var(--line-soft-v115) 88%,transparent)}
+.system-sim{box-shadow:inset 0 2px 0 color-mix(in srgb,var(--pastel-blue) 72%,transparent)!important}
+.system-actor{box-shadow:inset 0 2px 0 color-mix(in srgb,var(--pastel-mint) 72%,transparent)!important}
+.system-device{box-shadow:inset 0 2px 0 color-mix(in srgb,var(--pastel-cyan) 72%,transparent)!important}
+
+/* Roadmap: editorial timeline rail replaces the five skinny cards. */
+.roadmap-section{overflow:hidden}
+.roadmap-heading{margin-bottom:72px}
+.roadmap-track{
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:clamp(18px,2.8vw,44px);
+  width:min(1240px,100%);
+  margin-inline:auto;
+  padding:0 0 28px;
+}
+.roadmap-rail{
+  position:absolute;
+  left:2%;right:2%;top:28px;
+  height:1px;
+  background:linear-gradient(90deg,var(--pastel-cyan),var(--pastel-mint),var(--pastel-lavender),var(--pastel-blue),var(--pastel-peach));
+  opacity:.46;
+}
+.roadmap-stop{
+  --stop:var(--pastel-cyan);
+  position:relative;
+  padding-top:76px;
+  min-height:235px;
+}
+.roadmap-marker{
+  position:absolute;
+  top:13px;left:0;
+  width:30px;height:30px;
+  display:grid;place-items:center;
+  border:1px solid color-mix(in srgb,var(--stop) 70%,var(--line-v115));
+  background:var(--bg);
+  transform:rotate(45deg);
+  box-shadow:0 0 0 8px color-mix(in srgb,var(--bg) 92%,transparent);
+}
+.roadmap-marker::after{
+  content:"";
+  position:absolute;
+  inset:7px;
+  background:var(--stop);
+  opacity:.8;
+}
+.roadmap-marker span{
+  position:absolute;
+  top:38px;left:-6px;
+  transform:rotate(-45deg);
+  color:color-mix(in srgb,var(--muted) 72%,var(--stop) 28%);
+  font-size:10px;font-weight:800;letter-spacing:.14em;
+}
+.roadmap-stop h3{margin:0 0 12px;font-size:clamp(27px,2.2vw,38px);letter-spacing:-.045em}
+.roadmap-stop p{margin:0;color:var(--muted);line-height:1.6;max-width:21ch}
+.stop-cyan{--stop:var(--pastel-cyan)}
+.stop-mint{--stop:var(--pastel-mint)}
+.stop-lavender{--stop:var(--pastel-lavender)}
+.stop-blue{--stop:var(--pastel-blue)}
+.stop-peach{--stop:var(--pastel-peach)}
+
+/* Progress retains cards, with stronger outline + varied instrument accents. */
+.progress-instrument article{border:1px solid var(--line-v115)!important;background:var(--panel-v115)!important}
+.progress-built{box-shadow:inset 0 2px 0 var(--pastel-blue)!important}
+.progress-building{box-shadow:inset 0 2px 0 var(--pastel-mint)!important}
+.progress-core{box-shadow:inset 0 2px 0 var(--pastel-lavender)!important}
+
+/* Ambient graph field: more visible, but white remains the dominant constellation language. */
+#system::after{opacity:.53!important}
+#perception::before{opacity:.47!important}
+#roadmap::after{opacity:.46!important}
+.ambition::before{opacity:.45!important}
+#progress::after{opacity:.46!important}
+
+html[data-theme='light'] .roadmap-marker{background:var(--bg)}
+html[data-theme='light'] .perception-panel::after{opacity:.65}
+
+@media(max-width:1050px){
+  .perception-lab{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:auto}
+  .perception-primary,.perception-secondary,.perception-frontier{grid-column:auto;grid-row:auto;min-height:280px}
+  .perception-primary h3{font-size:clamp(34px,6vw,54px)}
+  .roadmap-track{grid-template-columns:repeat(5,minmax(150px,1fr));overflow-x:auto;padding-bottom:36px;scrollbar-width:thin}
+}
+
+@media(max-width:720px){
+  .nplus-mark,.kodo-crest-mini{width:22px!important;height:22px!important}
+  .perception-lab{grid-template-columns:1fr}
+  .perception-primary,.perception-secondary,.perception-frontier{min-height:235px}
+  .roadmap-heading{margin-bottom:48px}
+  .roadmap-track{display:block;overflow:visible;padding-left:42px}
+  .roadmap-rail{left:14px;right:auto;top:0;bottom:0;width:1px;height:auto;background:linear-gradient(180deg,var(--pastel-cyan),var(--pastel-mint),var(--pastel-lavender),var(--pastel-blue),var(--pastel-peach))}
+  .roadmap-stop{min-height:auto;padding:0 0 48px 20px}
+  .roadmap-marker{top:0;left:-42px;width:28px;height:28px}
+  .roadmap-marker span{top:36px;left:-4px}
+  .roadmap-stop p{max-width:34ch}
+  .footer-brand-pair .footer-mark{width:26px!important;height:26px!important}
+}
