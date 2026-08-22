@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" role="img" aria-labelledby="title desc">
+  <title id="title">Kodo Project mark</title>
+  <desc id="desc">Cache-safe fallback mark for the Kodo project.</desc>
+  <defs>
+    <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#25b9ff"/><stop offset="1" stop-color="#1578ff"/>
+    </linearGradient>
+    <linearGradient id="steel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#aeb7c4"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="900" fill="#03060b" rx="40"/>
+  <circle cx="450" cy="315" r="220" fill="none" stroke="url(#ring)" stroke-width="24"/>
+  <path d="M450 78l28 62-28 24-28-24zM450 552l28 55-28 46-28-46zM213 315l61-31 23 31-23 31zM687 315l-61-31-23 31 23 31z" fill="url(#ring)"/>
+  <path d="M450 150l48 54-8 155-40 58-40-58-8-155z" fill="url(#ring)"/>
+  <path d="M270 300l52-78 78 34 50 60 50-60 78-34 52 78-18 160-162 86-162-86z" fill="url(#steel)" stroke="#0c1119" stroke-width="18"/>
+  <path d="M340 355l110 75 110-75 28 111-138 70-138-70z" fill="#08101c"/>
+  <path d="M335 374q48 6 72 33-5 55-48 58-43-7-50-52zM565 374q-48 6-72 33 5 55 48 58 43-7 50-52z" fill="#21b9ff"/>
+  <path d="M135 655h110l-74 58 72-17-89 78H70z" fill="url(#ring)"/>
+  <text x="270" y="755" fill="#f7f8fa" font-size="145" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-style="italic" letter-spacing="-12">odo</text>
+  <text x="260" y="818" fill="#218fff" font-size="42" font-family="Arial, sans-serif" font-weight="700" letter-spacing="22">PROJECT</text>
+</svg>
