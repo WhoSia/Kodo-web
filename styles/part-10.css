@@ -1,0 +1,147 @@
+/* v0.11.1 — dual-theme aesthetic lock + editorial rhythm */
+
+html[data-theme="dark"]{
+  --bg:#070a0f;
+  --bg2:#0b1018;
+  --ink:#f4f7fb;
+  --muted:#9ca6b4;
+  --line:rgba(255,255,255,.10);
+  --blue:#2b9cff;
+  --cyan:#2fd8ff;
+  --green:#60ff5b;
+  --violet:#8b5cff;
+  --red:#ff5b52;
+  --surface:rgba(255,255,255,.035);
+}
+
+html[data-theme="light"]{
+  --bg:#efe8da;
+  --bg2:#e8dfcf;
+  --ink:#17191c;
+  --muted:#68645c;
+  --line:rgba(23,25,28,.13);
+  --blue:#176fc9;
+  --cyan:#2a7894;
+  --green:#4d893d;
+  --violet:#736383;
+  --red:#a54d45;
+  --surface:rgba(255,255,255,.30);
+}
+
+body,
+.site-header,
+.mobile-nav,
+.system-node,
+.perception-card,
+.roadmap-flow article,
+.progress-grid article,
+.logo-stage,
+.theme-button{
+  transition:background-color .24s ease,border-color .24s ease,color .24s ease,box-shadow .24s ease;
+}
+
+.desktop-nav{margin-left:auto}
+.theme-button{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-left:4px;
+  padding:8px 11px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:transparent;
+  color:var(--muted);
+  font:inherit;
+  font-size:12px;
+  letter-spacing:.04em;
+  cursor:pointer;
+}
+.theme-button:hover{color:var(--ink);border-color:color-mix(in srgb,var(--ink) 24%,transparent)}
+.theme-glyph{font-size:15px;line-height:1;color:var(--blue)}
+
+/* Keep the content-rich cards, but let the roadmap read as an editorial sequence. */
+.roadmap-flow article{
+  background:transparent;
+  border:0;
+  border-top:1px solid var(--line);
+  padding:22px 4px 14px;
+  min-height:184px;
+}
+.roadmap-flow article>span{margin-bottom:32px}
+.roadmap-flow i{opacity:.58}
+
+/* Dark mode stays close to the current Kodo instrument palette. */
+html[data-theme="dark"] .hero{
+  background:
+    radial-gradient(circle at 78% 22%,rgba(43,156,255,.11),transparent 30%),
+    radial-gradient(circle at 65% 65%,rgba(96,255,91,.045),transparent 24%);
+}
+
+/* Warm paper / light barley mode. Not white SaaS. */
+html[data-theme="light"] body{background:var(--bg);color:var(--ink)}
+html[data-theme="light"] .site-header{
+  background:rgba(239,232,218,.84);
+  box-shadow:0 1px 0 rgba(255,255,255,.28) inset;
+}
+html[data-theme="light"] .mobile-nav{background:rgba(232,223,207,.96)}
+html[data-theme="light"] .hero{
+  background:
+    radial-gradient(circle at 78% 22%,rgba(23,111,201,.075),transparent 31%),
+    radial-gradient(circle at 65% 65%,rgba(77,137,61,.045),transparent 25%);
+}
+html[data-theme="light"] .hero-lead{color:#464945}
+html[data-theme="light"] .hero-facts b{color:var(--ink)}
+html[data-theme="light"] .hero-links a:last-child{color:var(--muted)}
+html[data-theme="light"] .logo-stage{
+  background:linear-gradient(180deg,rgba(255,255,255,.24),rgba(255,255,255,.08));
+  box-shadow:0 28px 70px rgba(71,61,47,.07);
+}
+html[data-theme="light"] .logo-stage:before,
+html[data-theme="light"] .logo-stage:after{border-color:rgba(23,25,28,.08)}
+html[data-theme="light"] .logo-aura{
+  background:radial-gradient(circle,rgba(23,111,201,.09),transparent 64%);
+}
+html[data-theme="light"] .hero-constellation path{stroke:rgba(23,25,28,.13)}
+html[data-theme="light"] .hero-constellation circle{
+  fill:#202226;
+  filter:drop-shadow(0 0 7px rgba(23,25,28,.22));
+}
+html[data-theme="light"] .system-node,
+html[data-theme="light"] .perception-card{
+  background:rgba(255,255,255,.22);
+  box-shadow:0 18px 50px rgba(75,65,50,.035);
+}
+html[data-theme="light"] .perception-card.frontier{border-top-color:var(--ink)}
+html[data-theme="light"] .perception-card.frontier h3{color:var(--ink)}
+html[data-theme="light"] .progress-grid article{
+  background:linear-gradient(180deg,rgba(255,255,255,.17),transparent);
+}
+html[data-theme="light"] .ambition{
+  background:radial-gradient(circle at 70% 50%,rgba(77,137,61,.055),transparent 30%);
+}
+html[data-theme="light"] .fine-print{color:#777066}
+
+/* The graph field flips from white-star to graphite-star in light mode. */
+html[data-theme="light"] #system::after,
+html[data-theme="light"] #perception::before,
+html[data-theme="light"] #roadmap::after,
+html[data-theme="light"] .ambition::before{
+  filter:invert(1) drop-shadow(0 0 7px rgba(23,25,28,.06));
+  opacity:.17;
+}
+html[data-theme="light"] #progress::after{
+  filter:invert(1) drop-shadow(0 0 6px rgba(23,25,28,.11));
+  opacity:.2;
+}
+
+@media(max-width:720px){
+  .theme-button{margin-left:auto;padding:7px 9px}
+  .theme-button [data-theme-label]{display:none}
+  .theme-glyph{font-size:17px}
+  .menu-button{margin-left:4px}
+  .roadmap-flow article{min-height:auto;padding:18px 2px 8px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  body,.site-header,.mobile-nav,.system-node,.perception-card,.roadmap-flow article,.progress-grid article,.logo-stage,.theme-button{transition:none}
+}

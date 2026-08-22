@@ -1,7 +1,25 @@
 (() => {
+  const root = document.documentElement;
   const button = document.querySelector('[data-menu-button]');
   const mobileNav = document.querySelector('[data-mobile-nav]');
   const header = document.querySelector('[data-header]');
+  const themeButton = document.querySelector('[data-theme-toggle]');
+  const themeLabel = document.querySelector('[data-theme-label]');
+  const themeColor = document.querySelector('[data-theme-color]');
+
+  const applyTheme = (theme, persist = true) => {
+    const next = theme === 'light' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    if (themeLabel) themeLabel.textContent = next === 'dark' ? 'Light' : 'Dark';
+    if (themeButton) themeButton.setAttribute('aria-label', `Switch to ${next === 'dark' ? 'light' : 'dark'} theme`);
+    if (themeColor) themeColor.setAttribute('content', next === 'dark' ? '#070a0f' : '#efe8da');
+    if (persist) {
+      try { localStorage.setItem('kodo-theme', next); } catch (_) {}
+    }
+  };
+
+  applyTheme(root.dataset.theme, false);
+  themeButton?.addEventListener('click', () => applyTheme(root.dataset.theme === 'dark' ? 'light' : 'dark'));
 
   const closeMenu = () => {
     if (!button || !mobileNav) return;
