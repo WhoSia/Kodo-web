@@ -8,6 +8,14 @@
   const themeColor = document.querySelector('[data-theme-color]');
   const THEME_KEY = 'kodo-theme-v0112';
 
+  const resolveMediaCatalog = () => {
+    if (window.KODO_MEDIA_MODE === 'preview' && window.KODO_MEDIA_PREVIEW) {
+      return window.KODO_MEDIA_PREVIEW;
+    }
+    return window.KODO_MEDIA || {};
+  };
+  window.KODO_RESOLVE_MEDIA = resolveMediaCatalog;
+
   const applyTheme = (theme, persist = true) => {
     const next = theme === 'light' ? 'light' : 'dark';
     root.dataset.theme = next;
@@ -46,7 +54,7 @@
   syncHeader();
   addEventListener('scroll', syncHeader, { passive: true });
 
-  const media = window.KODO_MEDIA || {};
+  const media = resolveMediaCatalog();
   document.querySelectorAll('[data-media-slot]').forEach((slot) => {
     const key = slot.getAttribute('data-media-slot');
     const item = media[key];
