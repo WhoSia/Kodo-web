@@ -9,8 +9,8 @@
   const THEME_KEY = 'kodo-theme-v0112';
 
   const resolveMediaCatalog = () => {
-    if (window.KODO_MEDIA_MODE === 'preview' && window.KODO_MEDIA_PREVIEW) {
-      return window.KODO_MEDIA_PREVIEW;
+    if (window.KODO_MEDIA_MODE === 'staging' && window.KODO_MEDIA_STAGING) {
+      return window.KODO_MEDIA_STAGING;
     }
     return window.KODO_MEDIA || {};
   };
