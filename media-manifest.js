@@ -14,7 +14,7 @@ const KODO_MEDIA_CANONICAL = {
 
 window.KODO_MEDIA_PROVIDER = {
   resolve(mode = window.KODO_MEDIA_MODE) {
-    if (mode === 'preview' && window.KODO_MEDIA_PREVIEW) return window.KODO_MEDIA_PREVIEW;
+    if (mode === 'staging' && window.KODO_MEDIA_STAGING) return window.KODO_MEDIA_STAGING;
     return KODO_MEDIA_CANONICAL;
   }
 };
