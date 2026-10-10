@@ -1,34 +1,52 @@
 # Kodo-web
 
-Official website for **Kodo**, an **NPLUS** project reconstructing Brawl Stars state from the screen and building agents on top of that perception layer.
+The official website for **Kodo**, a project by **NPLUS**. The site presents the project's screen-to-state perception direction, game-environment development, and the path toward learning and real-time control.
 
-## Current state
+**Website:** https://kodoresearch.org/
 
-- Core game logic: implemented
-- UI: implemented
-- Gas system: in development
-- Research core: screen-to-state perception / CNN
-- CV tooling: YOLO via Ultralytics + OpenCV
-- Entity detection: YOLO
-- Wall detection: YOLOv11 has been used
-- OpenCV utilities: template matching, HSV masking, colour counting
-- Perception targets: wall positions, player/ally/enemy positions, and ability-readiness signals
-- Projectile tracking: current hardest visual state to recover reliably
+## Website status
 
-## Live site
+**Current public design release:** `Website Prototype 0.11.6` — Perception-to-Field Narrative, Latency-Aware Research Direction & Editorial Release.
 
-- https://kodoresearch.org
+The site includes:
+- Dark-first theme with a warm paper-style light theme and Freesentation accents
+- NPLUS / Kodo brand marks
+- Split Hero with a conceptual perception instrument and subtle constellation field
+- Asymmetric Perception surface, editorial system flow, and five-stage Roadmap
+- `FIELD CONDITIONS` section for mechanics, timing and sim-to-device transfer
+- Responsive layout and reduced-motion considerations
 
-## Run locally
+## Project narrative and evidence
 
-```bash
-python -m http.server 4173
-```
+Kodo's research direction is to reconstruct game state from visual observations, develop a controlled game environment, and use the resulting representations to train agents before testing real-world control.
 
-Then open `http://localhost:4173`.
+The last explicitly recorded Kodo build update lists core game logic and UI as implemented, with the gas system in development. A fresh build-state assessment remains **[to be confirmed]**.
 
-## Design release v0.11.5
+External contributor/peer examples discussed by the team include:
+- YOLO via Ultralytics, with v8 described for entity detection and v11 for wall detection
+- OpenCV template matching, HSV masking and colour counting
+- Game physics reconstruction, PPO experiments and latency simulation
 
-v0.11.5 keeps the perception-first research identity and rebuilds the visual rhythm around an asymmetric Perception surface, pastel signal accents, a denser Hero instrument field, stronger dark-mode outlines, matched NPLUS/Kodo marks, and an editorial Roadmap timeline instead of five narrow cards.
+These examples **do not establish that those model versions or experimental systems have been integrated into Kodo**. See [the 0.11.6 release authority record](docs/WEBSITE_V0_11_6_RELEASE.md). No unverified performance or benchmark numbers are published here.
 
-See [`docs/AESTHETIC_COURT_V0_11_5.md`](docs/AESTHETIC_COURT_V0_11_5.md).
+## Production and updates
+
+The production website is served at **https://kodoresearch.org/**. The project team reports a Cloudflare deployment connection to this GitHub repository.
+
+- Repository source of truth: `WhoSia/Kodo-web`, branch `main`
+- Website deployment: team-managed Cloudflare
+- Exact production deployment SHA, build trigger, and Cloudflare configuration: **[verify in Cloudflare dashboard]**
+
+Pushing to `main` updates the source. Confirm the latest production deployment separately when validating a release. No local server is required to *use* the live website.
+
+## Documentation
+
+- [0.11.6 release / technical narrative](docs/WEBSITE_V0_11_6_RELEASE.md)
+- [0.11.5 aesthetic court](docs/AESTHETIC_COURT_V0_11_5.md)
+- [0.11.4 research identity](docs/RESEARCH_IDENTITY_V0_11_4.md)
+- [0.10.3 architecture authority](docs/ARCHITECTURE_AUTHORITY_V0_10_3.md)
+- [Real-media admission gate](docs/MEDIA_INTAKE.md)
+
+The historical website prototype genealogy is maintained in **Research OS → Kodo-web**, classified as a **Non-Lab Project**. Incomplete chronology is left explicitly open for future conversation-archive Markdown reconciliation.
+
+Kodo is an independent NPLUS project. Brawl Stars is the target game; no affiliation with Supercell is implied.
