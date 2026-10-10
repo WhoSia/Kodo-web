@@ -1,25 +1,23 @@
-# Deployment handoff
+# Deployment — Kodo-web
 
-## GitHub
+## Live production
 
-Intended repository:
+- Domain: https://kodoresearch.org/
+- Canonical site repository: [WhoSia/Kodo-web](https://github.com/WhoSia/Kodo-web), `main`
+- Hosting: team-managed **Cloudflare** (reported by deployment owner)
+- Latest confirmed source release: `v0.11.6`
+- Latest production deployment commit SHA: **[verify in Cloudflare dashboard]**
 
-- owner: `WhoSia`
-- repository: `Kodo-web`
-- visibility: private initially
-- default branch: `main`
-- collaborator requested by NPLUS: `KR-penguin` with write access
+## Operational release path
 
-## Vercel
+1. Update the source on `WhoSia/Kodo-web/main`.
+2. Verify the commit and site gate.
+3. Check the Cloudflare dashboard for the production deployment's commit SHA and status. Repo connectivity has been repaired according to the deployment owner, but GitHub source state alone does not prove live promotion.
+4. Verify https://kodoresearch.org/ on desktop and mobile and confirm the visible release changes.
+5. If the site is stale, compare Cloudflare's connected repository and production SHA to `WhoSia/Kodo-web/main` before retrying.
 
-The current site is a static root site with no package installation or build command.
+## Historical note
 
-Recommended flow:
+The initial handoff proposed a Vercel Git import and later encountered a separate Cloudflare-import snapshot repository. Those instructions are historical and **not** the current production runbook. This static website does not require a framework, build dependencies, environment variables, or a local development server for production consumption.
 
-1. Import the GitHub repository in Vercel (`Add New` → `Project`).
-2. Let the repository root be the project root.
-3. No environment variables are currently required.
-4. Deploy and verify desktop + mobile.
-5. Connect the final domain afterwards on the deployment owner's side.
-
-The codebase intentionally avoids a framework until the site needs functionality that justifies one.
+Deployment credentials, DNS records, the exact Cloudflare project name and production source binding are deliberately **[not recorded here / to confirm with owner]**.
