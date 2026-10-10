@@ -63,7 +63,7 @@
     <div class="hero-copy">
       <p class="eyebrow"><span>NPLUS / Kodo</span></p>
       <h1>Building agents<br/>that learn to play.</h1>
-      <p class="hero-lead"><strong>The hard part is seeing the game.</strong> Kodo turns pixels into reliable state, then turns that state into an agent that can act.</p>
+      <p class="hero-lead"><strong>The hard part is seeing the game.</strong> Kodo is building a path from screen pixels to game state — and from game state to decisions under real match conditions.</p>
       <div class="hero-facts" aria-label="Kodo current facts">
         <span><b>CORE</b> Perception / CNN</span>
         <span><b>TOOLING</b> YOLO + OpenCV</span>
@@ -126,7 +126,7 @@
     <div class="perception-lab">
       <article class="perception-panel perception-primary pastel-cyan">
         <span>YOLO / ULTRALYTICS</span>
-        <div><h3>Detect the battlefield.</h3><p>Players, allies, enemies and walls become structured objects the rest of the system can use.</p></div>
+        <div><h3>Detect the battlefield.</h3><p>Detect players, allies, enemies and map structures from the screen, then feed those signals into a shared state representation.</p></div>
         <small>ENTITY / WALL DETECTION</small>
       </article>
       <article class="perception-panel perception-secondary pastel-mint">
@@ -136,12 +136,12 @@
       </article>
       <article class="perception-panel perception-secondary pastel-lavender">
         <span>STATE RECOVERY</span>
-        <div><h3>Turn pixels into state.</h3><p>Positions, map structure and ability-readiness signals become a coherent observation layer.</p></div>
+        <div><h3>Turn pixels into state.</h3><p>Combine visual detections, map geometry and readiness signals into the observation layer the agent needs.</p></div>
         <small>SCREEN → STATE</small>
       </article>
       <article class="perception-panel perception-frontier pastel-peach">
         <span>FRONTIER</span>
-        <div><h3>Track what moves fastest.</h3><p>Projectiles are small, fast and visually unstable — the hardest combat signal in the current perception stack.</p></div>
+        <div><h3>Track what moves fastest.</h3><p>Projectiles crowd the screen, move fast and resist reliable detection. Resolving them is a core perception challenge.</p></div>
         <small>PROJECTILE TRACKING</small>
       </article>
     </div>
@@ -153,14 +153,29 @@
     <div class="section-heading">
       <p class="section-index">02 / SYSTEM</p>
       <h2>One loop. Two sources.</h2>
-      <p>Simulation exposes state directly. On device, perception reconstructs it from pixels before the same decision loop acts.</p>
+      <p>Rebuild game mechanics in simulation. Recover state through vision on device. Connect both to the same agent loop.</p>
     </div>
     <div class="system-flow open-system" aria-label="Kodo system flow">
-      <article class="system-node source-node system-sim"><span>SIMULATION</span><h3>Kodo environment</h3><p>Mechanics, UI and structured game state.</p></article>
+      <article class="system-node source-node system-sim"><span>SIMULATION</span><h3>Kodo environment</h3><p>Game mechanics, interface and structured state.</p></article>
       <div class="system-arrow">→</div>
-      <article class="system-node actor-node system-actor"><span>ACTOR LOOP</span><h3>Observe → represent → remember → decide → act</h3><p>Perception supplies the state. The agent learns what to do with it.</p></article>
+      <article class="system-node actor-node system-actor"><span>ACTOR LOOP</span><h3>Observe → represent → remember → decide → act</h3><p>The agent learns in simulation and acts on observations recovered from the screen.</p></article>
       <div class="system-arrow reverse">←</div>
-      <article class="system-node source-node device-node system-device"><span>DEVICE</span><h3>Pixels → recovered state</h3><p>Computer vision rebuilds the battlefield from the live screen.</p></article>
+      <article class="system-node source-node device-node system-device"><span>DEVICE</span><h3>Pixels → recovered state</h3><p>Vision extracts the battlefield from each screen observation.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section ruled reality-section" id="real-world">
+  <div class="shell reality-layout">
+    <div class="reality-intro">
+      <p class="section-index">FIELD CONDITIONS / NEXT CHALLENGE</p>
+      <h2>The screen moves.<br/>The world waits for no model.</h2>
+      <p>Accurate simulation is only the start. The agent must also handle the gap between what happens, what the screen reveals and when an action takes effect.</p>
+    </div>
+    <div class="reality-steps" aria-label="Real-world integration priorities">
+      <article><span>01 / MECHANICS</span><h3>Reconstruct the rules.</h3><p>Model movement, aiming and combat interactions inside the environment.</p></article>
+      <article><span>02 / TIMING</span><h3>Train for delay.</h3><p>Bring observation and input latency into training, not just idealized frames.</p></article>
+      <article><span>03 / TRANSFER</span><h3>Test the full loop.</h3><p>Connect perception, decisions and control under realistic conditions.</p></article>
     </div>
   </div>
 </section>
@@ -170,7 +185,7 @@
     <div class="section-heading roadmap-heading">
       <p class="section-index">03 / ROADMAP</p>
       <h2>Capture. Recover. Imitate. Compete. Deploy.</h2>
-      <p>Perception comes first. Reliable state becomes training data. Learning turns that data into behaviour, and deployment closes the loop.</p>
+      <p>Start with human play. Reconstruct the game state. Train through imitation and self-play. Bring the agent back to real-time play.</p>
     </div>
     <div class="roadmap-track" aria-label="Kodo roadmap">
       <div class="roadmap-rail" aria-hidden="true"></div>
@@ -205,11 +220,11 @@
 
 <section class="section ruled" id="progress">
   <div class="shell">
-    <div class="section-heading"><p class="section-index">04 / PROGRESS</p><h2>Build the vision layer. Then scale the agent.</h2></div>
+    <div class="section-heading"><p class="section-index">04 / PROGRESS</p><h2>From reconstructed state to real-time play.</h2></div>
     <div class="progress-grid progress-instrument">
       <article class="progress-built"><span>BUILT</span><strong>Core game logic</strong><strong>User interface</strong></article>
-      <article class="progress-building"><span>BUILDING</span><strong>Gas system</strong><strong>Perception bridge</strong></article>
-      <article class="progress-core"><span>RESEARCH CORE</span><strong>Screen → state</strong><strong>CNN + classical CV</strong></article>
+      <article class="progress-building"><span>BUILDING</span><strong>Gas system</strong><strong>Physics + observation bridge</strong></article>
+      <article class="progress-core"><span>RESEARCH CORE</span><strong>Vision + structured state</strong><strong>Latency-aware control</strong></article>
     </div>
   </div>
 </section>
