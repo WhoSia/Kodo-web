@@ -6,7 +6,7 @@ The official website for **Kodo**, a project by **NPLUS**. The site presents the
 
 ## Website status
 
-**Current public design release:** `Website Prototype 0.11.6` — Perception-to-Field Narrative, Latency-Aware Research Direction & Editorial Release.
+**Current public release:** `Website Prototype 0.11.7` — Visual Fidelity & Structural Consolidation: Cascade Simplification, Interaction Contract Repair & Evidence-Grounded Design Assurance.
 
 The site includes:
 - Dark-first theme with a warm paper-style light theme and Freesentation accents
@@ -15,6 +15,7 @@ The site includes:
 - Asymmetric Perception surface, editorial system flow, and five-stage Roadmap
 - `FIELD CONDITIONS` section for mechanics, timing and sim-to-device transfer
 - Responsive layout and reduced-motion considerations
+- Consolidated stylesheet, repaired mobile-menu interactions, and headless Chromium regression checks
 
 ## Project narrative and evidence
 
@@ -39,8 +40,17 @@ The production website is served at **https://kodoresearch.org/**. The project t
 
 Pushing to `main` updates the source. Confirm the latest production deployment separately when validating a release. No local server is required to *use* the live website.
 
+## Source verification
+
+The static HTML, CSS and JavaScript remain framework-free. `styles.css` preserves the former `part-8`–`part-14` cascade in source order; consolidating the file did **not** remove every overridden selector or `!important` declaration.
+
+GitHub Actions runs `tools/check_site.py` and Playwright/Chromium checks at 1440, 820 and 390 CSS-pixel widths. These verify selected DOM contracts, navigation, theme persistence, image load, and overflow, but **not** pixel-perfect parity with older releases or production Cloudflare deployment.
+
+See [CI workflow](.github/workflows/site-check.yml) and [0.11.7 release evidence](docs/WEBSITE_V0_11_7_RELEASE.md).
+
 ## Documentation
 
+- [0.11.7 release and evidence bounds](docs/WEBSITE_V0_11_7_RELEASE.md)
 - [0.11.6 release / technical narrative](docs/WEBSITE_V0_11_6_RELEASE.md)
 - [0.11.5 aesthetic court](docs/AESTHETIC_COURT_V0_11_5.md)
 - [0.11.4 research identity](docs/RESEARCH_IDENTITY_V0_11_4.md)
