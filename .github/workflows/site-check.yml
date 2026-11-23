@@ -7,6 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -17,6 +19,7 @@ jobs:
         run: |
           node --check script.js
           node --check tools/check_browser.cjs
+          node --check tools/check_css_parity.cjs
           python tools/check_site.py
       - name: Install headless browser test runtime
         run: |
@@ -26,3 +29,8 @@ jobs:
         run: |
           python -m http.server 4173 --bind 127.0.0.1 >/tmp/kodo-site.log 2>&1 &
           node tools/check_browser.cjs
+      - name: CSS parity against pinned v0.11.7 baseline
+        run: |
+          git show 2fe13399dc4f252167cc0098f957103d76734451:styles.css > /tmp/kodo-css-baseline.css
+          python -m http.server 4173 --bind 127.0.0.1 >/tmp/kodo-css-site.log 2>&1 &
+          node tools/check_css_parity.cjs
