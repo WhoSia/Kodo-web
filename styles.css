@@ -14,12 +14,13 @@
 .site-header{position:sticky;top:0;z-index:50;background:rgba(7,10,15,.82);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.header-row{height:72px;display:flex;align-items:center;justify-content:space-between}.brand-lockup{display:flex;align-items:center;gap:10px;font-weight:800}.nplus-mark{width:28px;height:28px;object-fit:contain}.brand-word{font-size:18px;letter-spacing:-.03em}.desktop-nav{display:flex;gap:26px;color:var(--muted);font-size:14px}.desktop-nav a:hover{color:var(--ink)}.menu-button{display:none;border:0;background:none;color:var(--ink);font:inherit}.mobile-nav{display:none}
 .hero{position:relative;overflow:hidden;min-height:740px;padding:92px 0 72px;background:radial-gradient(circle at 78% 22%,rgba(22,151,255,.12),transparent 30%),radial-gradient(circle at 65% 65%,rgba(96,255,91,.05),transparent 24%)}.hero-constellation{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.hero-constellation path{fill:none;stroke:rgba(255,255,255,.12);stroke-width:1}.hero-constellation circle{fill:#fff;filter:drop-shadow(0 0 8px rgba(255,255,255,.8))}.hero-grid{position:relative;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);gap:72px;align-items:center}.eyebrow{display:flex;align-items:center;gap:10px;margin:0 0 26px;color:var(--muted);font-size:12px;letter-spacing:.15em;font-weight:700}.eyebrow img{width:28px;height:28px}.hero h1{font-size:clamp(64px,7.8vw,126px);line-height:.88;letter-spacing:-.07em;margin:0;max-width:920px}.hero-lead{font-size:clamp(18px,1.5vw,24px);color:#c5cfda;max-width:620px;margin:30px 0 34px;line-height:1.4}.hero-facts{display:flex;flex-wrap:wrap;gap:8px 22px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}.hero-facts b{color:var(--ink);font-size:11px;letter-spacing:.12em;margin-right:6px}.hero-links{display:flex;gap:22px;margin-top:28px;font-size:14px;font-weight:650}.hero-links a:last-child{color:var(--muted)}
 .section{padding:104px 0}.section-heading{display:grid;grid-template-columns:180px minmax(0,1fr);gap:40px;margin-bottom:46px}.section-index{margin:0;color:var(--muted);font-size:11px;font-weight:700;letter-spacing:.16em}.section-heading h2,.ambition h2{margin:0;font-size:clamp(42px,5.2vw,78px);line-height:.95;letter-spacing:-.055em}.section-heading>p:last-child{grid-column:2;margin:14px 0 0;max-width:690px;color:var(--muted);font-size:18px;line-height:1.55}
-.system-flow{display:grid;grid-template-columns:1fr auto 1.45fr auto 1fr;align-items:stretch;gap:14px}.system-node{padding:28px;border:1px solid var(--line);background:var(--surface)}.system-node>span,.perception-card>span,.roadmap-flow article>span,.progress-grid article>span{display:block;color:var(--muted);font-size:10px;font-weight:750;letter-spacing:.16em;margin-bottom:24px}.system-node h3{margin:0 0 10px;font-size:22px;letter-spacing:-.03em}.system-node p{margin:0;color:var(--muted)}.actor-node{border-color:rgba(96,255,91,.25)}.device-node{border-color:rgba(47,216,255,.25)}.system-arrow{display:grid;place-items:center;color:var(--muted);font-size:22px}
+.system-flow{display:grid;grid-template-columns:1fr auto 1.45fr auto 1fr;align-items:stretch;gap:14px}.system-node{padding:28px;border:1px solid var(--line);background:var(--surface)}.system-node>span,
+.progress-grid article>span{display:block;color:var(--muted);font-size:10px;font-weight:750;letter-spacing:.16em;margin-bottom:24px}.system-node h3{margin:0 0 10px;font-size:22px;letter-spacing:-.03em}.system-node p{margin:0;color:var(--muted)}.actor-node{border-color:rgba(96,255,91,.25)}.device-node{border-color:rgba(47,216,255,.25)}.system-arrow{display:grid;place-items:center;color:var(--muted);font-size:22px}
 .progress-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.progress-grid article{padding:28px;border-top:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.025),transparent)}.progress-grid strong{display:block;font-size:24px;letter-spacing:-.03em;margin:7px 0}.progress-grid article:nth-child(2){border-top-color:rgba(96,255,91,.55)}
 .ambition{padding:110px 0 120px;background:radial-gradient(circle at 70% 50%,rgba(96,255,91,.07),transparent 30%)}.ambition-grid{display:grid;grid-template-columns:180px minmax(0,1fr) 270px;gap:40px;align-items:start}.ambition h2{font-size:clamp(54px,7vw,100px)}.ambition-grid>div:nth-child(2)>p{max-width:670px;color:var(--muted);font-size:18px;line-height:1.6}.ambition-steps{display:flex;flex-direction:column;border-top:1px solid var(--line)}.ambition-steps span{padding:17px 0;border-bottom:1px solid var(--line);font-size:11px;font-weight:750;letter-spacing:.14em}
 .site-footer{padding:48px 0 60px}.footer-grid{display:grid;grid-template-columns:240px 1fr minmax(260px,420px);gap:36px;align-items:end}.footer-brands{display:flex;align-items:center;gap:20px}.footer-brands img:first-child{width:42px;height:42px}.footer-brands img:last-child{width:120px}.footer-copy{display:flex;gap:22px;align-items:center;flex-wrap:wrap}.footer-copy a{color:var(--muted);font-size:13px}.fine-print{margin:0;color:#6f7986;font-size:11px;line-height:1.5;text-align:right}
 @media(max-width:1050px){.shell{width:min(var(--max),calc(100% - 40px))}.hero-grid{grid-template-columns:1fr;gap:44px}.hero{min-height:auto}.system-flow{grid-template-columns:1fr}.system-arrow{transform:rotate(90deg)}.system-arrow.reverse{transform:rotate(-90deg)}.ambition-grid{grid-template-columns:140px 1fr}.ambition-steps{grid-column:2}.footer-grid{grid-template-columns:1fr 1fr}.fine-print{grid-column:1/-1;text-align:left}}
-@media(max-width:720px){.shell{width:calc(100% - 32px)}.header-row{height:62px}.desktop-nav{display:none}.menu-button{display:flex;gap:8px;align-items:center;border:0;background:none;color:var(--ink)}.mobile-nav{display:flex;flex-direction:column;gap:0;background:var(--bg2);border-bottom:1px solid var(--line)}.mobile-nav[hidden]{display:none}.mobile-nav a{padding:14px 0;border-top:1px solid var(--line)}.hero{padding:64px 0 54px}.hero h1{font-size:clamp(58px,17vw,86px)}.hero-lead{font-size:18px}.section{padding:76px 0}.section-heading{display:block}.section-index{margin-bottom:22px}.section-heading>p:last-child{margin-top:18px;font-size:16px}.perception-grid,.progress-grid{grid-template-columns:1fr}.ambition{padding:80px 0}.ambition-grid{display:block}.ambition-grid>.section-index{margin-bottom:22px}.ambition-steps{margin-top:38px}.footer-grid{display:block}.footer-copy{margin:26px 0}.fine-print{text-align:left}.hero-facts{display:grid;gap:10px}}
+@media(max-width:720px){.shell{width:calc(100% - 32px)}.header-row{height:62px}.desktop-nav{display:none}.menu-button{display:flex;gap:8px;align-items:center;border:0;background:none;color:var(--ink)}.mobile-nav{display:flex;flex-direction:column;gap:0;background:var(--bg2);border-bottom:1px solid var(--line)}.mobile-nav[hidden]{display:none}.mobile-nav a{padding:14px 0;border-top:1px solid var(--line)}.hero{padding:64px 0 54px}.hero h1{font-size:clamp(58px,17vw,86px)}.hero-lead{font-size:18px}.section{padding:76px 0}.section-heading{display:block}.section-index{margin-bottom:22px}.section-heading>p:last-child{margin-top:18px;font-size:16px}.progress-grid{grid-template-columns:1fr}.ambition{padding:80px 0}.ambition-grid{display:block}.ambition-grid>.section-index{margin-bottom:22px}.ambition-steps{margin-top:38px}.footer-grid{display:block}.footer-copy{margin:26px 0}.fine-print{text-align:left}.hero-facts{display:grid;gap:10px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
 
 /* === SOURCE: styles/part-9.css (historical original kept in Git) === */
@@ -190,10 +191,7 @@ body,
 .site-header,
 .mobile-nav,
 .system-node,
-.perception-card,
-.roadmap-flow article,
 .progress-grid article,
-.logo-stage,
 .theme-button{
   transition:background-color .24s ease,border-color .24s ease,color .24s ease,box-shadow .24s ease;
 }
@@ -244,8 +242,7 @@ html[data-theme="light"] .hero-constellation circle{
   fill:#202226;
   filter:drop-shadow(0 0 7px rgba(23,25,28,.22));
 }
-html[data-theme="light"] .system-node,
-html[data-theme="light"] .perception-card{
+html[data-theme="light"] .system-node{
   background:rgba(255,255,255,.22);
   box-shadow:0 18px 50px rgba(75,65,50,.035);
 }
@@ -278,7 +275,12 @@ html[data-theme="light"] #progress::after{
 }
 
 @media(prefers-reduced-motion:reduce){
-  body,.site-header,.mobile-nav,.system-node,.perception-card,.roadmap-flow article,.progress-grid article,.logo-stage,.theme-button{transition:none}
+  body,
+.site-header,
+.mobile-nav,
+.system-node,
+.progress-grid article,
+.theme-button{transition:none}
 }
 
 /* === SOURCE: styles/part-11.css (historical original kept in Git) === */
@@ -293,14 +295,12 @@ html[data-theme="light"] #progress::after{
 .section-heading h2,
 .ambition h2,
 .system-node h3,
-.perception-card h3,
-.roadmap-flow article h3,
 .progress-grid strong,
 .brand-word{
   font-family:var(--font-display);
 }
 .hero h1,.section-heading h2,.ambition h2{font-weight:700}
-.system-node h3,.perception-card h3,.roadmap-flow article h3{font-weight:600}
+.system-node h3{font-weight:600}
 
 /* Give the theme instrument breathing room after the navigation. */
 @media(min-width:721px){
@@ -318,8 +318,6 @@ html[data-theme='light']{
 }
 
 html[data-theme='dark'] .system-node,
-html[data-theme='dark'] .perception-card,
-html[data-theme='dark'] .roadmap-flow article,
 html[data-theme='dark'] .progress-grid article{
   border-color:var(--line-strong);
   background:var(--surface-strong);
@@ -327,8 +325,6 @@ html[data-theme='dark'] .progress-grid article{
 }
 
 html[data-theme='light'] .system-node,
-html[data-theme='light'] .perception-card,
-html[data-theme='light'] .roadmap-flow article,
 html[data-theme='light'] .progress-grid article{
   border-color:var(--line-strong);
   background:var(--surface-strong);
@@ -536,15 +532,11 @@ html[data-theme='light']{
 .open-system .system-arrow{position:relative;z-index:2;color:var(--ink);opacity:.6}
 
 /* Cards: one step more visible, still thin and technical. */
-html[data-theme='dark'] .perception-card,
-html[data-theme='dark'] .roadmap-flow article,
 html[data-theme='dark'] .progress-grid article{
   border-color:var(--line-v113)!important;
   background:var(--surface-v113)!important;
   box-shadow:inset 0 1px 0 rgba(255,255,255,.035),0 20px 50px rgba(0,0,0,.10)!important;
 }
-html[data-theme='light'] .perception-card,
-html[data-theme='light'] .roadmap-flow article,
 html[data-theme='light'] .progress-grid article{
   border-color:var(--line-v113)!important;
   background:var(--surface-v113)!important;
