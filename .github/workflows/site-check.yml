@@ -1,7 +1,25 @@
 name: Site checks
 on:
   push:
+    paths:
+      - 'index.html'
+      - 'styles.css'
+      - 'styles/**'
+      - 'script.js'
+      - 'favicon.svg'
+      - 'assets/**'
+      - 'tools/**'
+      - '.github/workflows/site-check.yml'
   pull_request:
+    paths:
+      - 'index.html'
+      - 'styles.css'
+      - 'styles/**'
+      - 'script.js'
+      - 'favicon.svg'
+      - 'assets/**'
+      - 'tools/**'
+      - '.github/workflows/site-check.yml'
 jobs:
   validate:
     runs-on: ubuntu-latest
