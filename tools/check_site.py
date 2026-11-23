@@ -55,7 +55,7 @@ checks = {
     "theme_contract": len(toggle) == 1 and "data-theme" in html and "kodo-theme-v0112" in js
         and "kodo-theme-v0112" in html and "localStorage.setItem" in js,
     "all_local_assets_exist": all((ROOT / asset).is_file() for asset in p.assets),
-    "consolidated_css": not re.search(r"@import\\s+url\\([^)]*part-\\d+\\.css", css)
+    "consolidated_css": not any("part-" in value for value in re.findall(r"@import[^;]*;", css))
         and "SOURCE: styles/part-13.css" in css and "SOURCE: styles/part-14.css" in css,
     "css_balanced": valid_css_balance(css),
     "media_dead_path_removed": "media-manifest.js" not in html and "data-media-slot" not in js,
