@@ -44,7 +44,7 @@ Pushing to `main` updates the source. Confirm the latest production deployment s
 
 The static HTML, CSS and JavaScript remain framework-free. `styles.css` preserves the former `part-8`–`part-14` cascade in source order; consolidating the file did **not** remove every overridden selector or `!important` declaration.
 
-GitHub Actions runs `tools/check_site.py` and Playwright/Chromium checks at 1440, 820 and 390 CSS-pixel widths. These verify selected DOM contracts, navigation, theme persistence, image load, and overflow, but **not** pixel-perfect parity with older releases or production Cloudflare deployment.
+GitHub Actions runs `tools/check_site.py`, Playwright/Chromium interaction tests at **360, 390, 720, 721, 820, 1024 and 1440 CSS-pixel widths**, and `tools/check_css_parity.cjs` for computed-style/layout comparisons at **390, 720 and 1440 CSS pixels** in both themes against a pinned v0.11.7 baseline. The workflow also collects screenshot artifacts. These tests do **not** establish pixel-perfect parity with older v0.11.6 screenshots or the production Cloudflare deployment.
 
 See [CI workflow](.github/workflows/site-check.yml) and [0.11.7 release evidence](docs/WEBSITE_V0_11_7_RELEASE.md).
 
