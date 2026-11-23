@@ -1,7 +1,10 @@
 const { chromium } = require('playwright');
 const assert = require('node:assert/strict');
+const fs = require('node:fs');
 
 const origin = process.env.KODO_TEST_URL || 'http://127.0.0.1:4173';
+const screenshotDir = process.env.KODO_SCREENSHOT_DIR;
+if (screenshotDir) fs.mkdirSync(screenshotDir, { recursive: true });
 const sizes = [
   { width: 1440, height: 900 },
   { width: 1024, height: 900 },
@@ -51,6 +54,10 @@ const sizes = [
       assert.equal(await page.locator('html').getAttribute('data-theme'), 'light', 'theme toggle');
       await page.reload({ waitUntil: 'domcontentloaded' });
       assert.equal(await page.locator('html').getAttribute('data-theme'), 'light', 'theme persistence');
+      if (screenshotDir) await page.screenshot({
+        path: screenshotDir + '/kodo-' + viewport.width + '-light.png', fullPage: true,
+        animations: 'disabled',
+      });
       await page.locator('[data-theme-toggle]').click();
       assert.equal(await page.locator('html').getAttribute('data-theme'), 'dark', 'dark restore');
       if (viewport.width >= 721) {
@@ -78,6 +85,10 @@ const sizes = [
       }
       assert.deepEqual(errors, [], 'page JS errors');
       assert.deepEqual(badAssets, [], 'broken same-origin HTTP requests');
+      if (screenshotDir) await page.screenshot({
+        path: screenshotDir + '/kodo-' + viewport.width + '-dark.png', fullPage: true,
+        animations: 'disabled',
+      });
       console.log('BROWSER_GATE=PASS viewport=' + viewport.width);
       await context.close();
     }
