@@ -10,9 +10,19 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: pip install beautifulsoup4
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: node --check script.js && node --check media-manifest.js
-      - run: python tools/check_site.py
+      - name: Static and JavaScript contracts
+        run: |
+          node --check script.js
+          node --check tools/check_browser.cjs
+          python tools/check_site.py
+      - name: Install headless browser test runtime
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+      - name: Browser interaction and responsive checks
+        run: |
+          python -m http.server 4173 --bind 127.0.0.1 >/tmp/kodo-site.log 2>&1 &
+          node tools/check_browser.cjs

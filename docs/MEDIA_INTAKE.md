@@ -1,32 +1,17 @@
 # Real media intake
 
-The website should prefer real Kodo artifacts over decorative AI imagery.
+The website should prefer approved, real Kodo project artifacts over decorative AI imagery. The former `media-manifest.js` was inert in the v0.11.6 DOM and was retired in v0.11.7. A new media feature must be implemented and tested when actual assets exist; editing a disconnected manifest cannot activate imagery.
 
 ## Admission gate
 
-A media asset may be marked `real` only if all are true:
+Only publish actual Kodo output with team approval; check for user data, credentials, private Discord screenshots and local paths; keep captions and metrics source-grounded. Third-party Brawl Stars game imagery must not imply affiliation with Supercell.
 
-- it is actual Kodo project output;
-- public display is acceptable to the team;
-- it contains no private Discord/user data, credentials, local paths, or sensitive debug information;
-- the caption does not imply a metric or result that was not measured;
-- third-party game imagery is presented as project target/context and does not imply affiliation with Supercell.
+## Future hero media integration
 
-## Hero replacement
+1. Add an approved project screenshot or clip to `assets/` (for example `assets/kodo-environment.webp`).
+2. Replace or complement the conceptual `hero-instrument` figure in `index.html` with a semantic `<figure>` and a descriptive `<img>` or video poster.
+3. Add alt text, a source-backed caption, and the correct dimensions/aspect ratio.
+4. Update `tools/check_site.py` and `tools/check_browser.cjs` to verify asset loading and responsive behavior.
+5. Re-run the browser checks and compare against the previous visual baseline.
 
-Place the file at, for example:
-
-`assets/kodo-environment.webp`
-
-Then edit `media-manifest.js`:
-
-```js
-hero: {
-  mode: "real",
-  src: "./assets/kodo-environment.webp",
-  alt: "Kodo environment showing ...",
-  caption: "Kodo environment build, captured ..."
-}
-```
-
-If `mode` remains `conceptual`, the website keeps the schematic fallback.
+The conceptual schematic remains until an actual approved visual is provided.
