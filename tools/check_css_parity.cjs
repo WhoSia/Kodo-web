@@ -20,15 +20,11 @@ const props = [
   'flexDirection','flexWrap','alignItems','justifyContent',
   'transform','filter','objectFit','overflowX','overflowY','zIndex',
 ];
-function fingerprint() {
+function fingerprint(props) {
   return [...document.querySelectorAll('body, body *')].map((el, index) => {
     const cssValue = getComputedStyle(el);
     const box = el.getBoundingClientRect();
-    const values = Object.fromEntries(
-      ['index','tag','class','id',...Object.keys(Object.fromEntries(props.map(p=>[p,true])))]
-      .filter(x => !['index','tag','class','id'].includes(x))
-      .map(p => [p, cssValue[p]])
-    );
+    const values = Object.fromEntries(props.map(p => [p, cssValue[p]]));
     return {
       index,
       tag: el.tagName,
@@ -57,7 +53,7 @@ function fingerprint() {
           }
           await page.goto(SITE, { waitUntil: 'load' });
           await page.evaluate(() => document.fonts.ready);
-          return await page.evaluate(fingerprint);
+          return await page.evaluate(fingerprint, props);
         } finally {
           await context.close();
         }
