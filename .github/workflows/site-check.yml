@@ -28,6 +28,14 @@ jobs:
       - name: Browser interaction and responsive checks
         run: |
           python -m http.server 4173 --bind 127.0.0.1 >/tmp/kodo-site.log 2>&1 &
-          node tools/check_browser.cjs
+          KODO_SCREENSHOT_DIR=artifacts/site node tools/check_browser.cjs
           git show 2fe13399dc4f252167cc0098f957103d76734451:styles.css > /tmp/kodo-css-baseline.css
           node tools/check_css_parity.cjs
+      - name: Upload browser visual receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kodo-browser-screenshots
+          path: artifacts/site/*.png
+          if-no-files-found: ignore
+          retention-days: 14
